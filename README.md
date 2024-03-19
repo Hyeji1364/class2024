@@ -1,7 +1,7 @@
 # 오늘의 수업
-[메인 페이지] (https://hyeji1364.github.io/class2024/)
+[메인 페이지](https://hyeji1364.github.io/class2024/)          
 
-[자바스크립트] (https://hyeji1364.github.io/class2024/javascript/index.html)
+[자바스크립트](https://hyeji1364.github.io/class2024/javascript/index.html)
 
 # vscode 확장 프로그램
 Live server : 웹페이지 미리보기         
