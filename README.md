@@ -35,3 +35,6 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 
 ## 색상 관련된 사이트
 [브랜드 색상 제너레이션](https://huemint.com/brand-intersection/)
+
+# cmd 중간에 나갈때
+ctrl + C
