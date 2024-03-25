@@ -9,7 +9,7 @@
 [퀴즈게임](https://hyeji1364.github.io/class2024/quiz/index.html)
 
 [퀴즈01](https://hyeji1364.github.io/class2024/quiz/quiz01.html)
-- 변수
+- 변수(const)
 - 선택자(querySelector)
 - 메서드(innerText(), classList, addEventListener, if문)
 
