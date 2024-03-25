@@ -9,31 +9,51 @@
 
 <body>
     <script>
-        // 01. 함수 : 선언적 함수
+        // 01. 함수: 선언적 함수
         {
             function func() {
-                console.log("01. 함수 : 선언적 함수")
+                console.log("01.함수가 실행되었습니다.")
             }
             func();
         }
+
         // 02. 함수 : 익명 함수
         {
             const func = function () {
-                console.log("02. 함수 : 익명 함수");
-            }
+                console.log("02. 함수가 실행되었습니다.")
+            };
             func();
         }
-        // 03. 함수 : 매개변수 함수 (선언적/익명)
+
+        // 03. 함수 : 매개변수 함수
         {
             // 선언적 함수
             function func(str) {
                 console.log(str);
             }
-            func("03. 함수 : 매개변수 함수(선언적)")
-        }
-        // 04. 함수 : 리턴값 함수 (선언적/익명)
-        // 05. 함수 : 매개변수 + 리턴값 함수 (선언적/익명)  
+            func("03.함수가 선언되었습니다.");
 
+            // 익명 함수
+            const func1 = function (str) {
+                console.log(str)
+            }
+            func("03.함수가 선언되었습니다.");
+        }
+
+        // 04. 함수 : 리턴값 함수
+
+        //선언적 함수
+        function func() {
+            return "04.변수가 선언되었습니다."
+
+            console.log(func());
+
+            // 익명 함수
+            const func1 = function () {
+                return "04.변수 선언되었습니다.";
+            }
+            console.log(func());
+        }
     </script>
 </body>
 
