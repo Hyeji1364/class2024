@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 01. 선언적 함수
+        {
+            function test() {
+                console.log("01. 함수 실행");
+            }
+            test();
+        }
+
+
+        //02. 익명 함수
+        {
+            const test = function () {
+                console.log("02. 함수 실행");
+            }
+            test();
+        }
+
+        //03. 매개변수 함수
+        {
+            function test(string) {
+                console.log(string);
+            }
+            test("03. 함수 실행");
+        }
+
+        //04.리턴값 함수
+        {
+            function test() {
+                return "04. 함수 실행";
+            }
+            console.log(test());
+        }
+
+        // 05. 매개변수 + 리턴값 함수
+        {
+            function test(string) {
+
+                return string;
+            }
+            console.log(test("05. 함수 실행"));
+        }
+
+        // 06. (화살표 함수)선언적 함수
+        {
+            test = () => {
+                console.log("06. 함수 실행");
+            }
+            test();
+        }
+
+        // 07.(화살표 함수) 익명 함수
+        {
+            const test = () => {
+                console.log("07. 함수 실행");
+            }
+            test();
+        }
+
+        // 08. (화살표 함수) 매개변수 함수
+        {
+            test = (string) => {
+                console.log(string);
+            }
+            test("08. 함수 실행");
+        }
+        // for()문
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
+    </script>
+</body>
+
+</html>
