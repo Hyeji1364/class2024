@@ -223,17 +223,17 @@
                     자신만의 this를 생성하지 않고, 함수가 정의된 스코프의 this값을 그대로 사용합니다.
                 </p>
                 <pre><code>{
-    // 선언적 함수
-    function func() {
-        console.log("06. 함수가 실행되었습니다.");
-    }
-    func();
+        // 선언적 함수
+        function func() {
+            console.log("06. 함수가 실행되었습니다.");
+        }
+        func();
 
-    // 선언적 함수 --> 화살표 함수
-    func1 = () => {
-        console.log("06. 함수가 실행되었습니다.");
-    }
-    func();
+        // 선언적 함수 --> 화살표 함수
+        func1 = () => {
+            console.log("06. 함수가 실행되었습니다.");
+        }
+        func();
 }</code></pre>
                 <div class="result">
                     <details>
@@ -314,17 +314,17 @@
                     화살표 함수의 리턴 값은 함수의 실행이 종료될 때 반환되는 값입니다. 이 값은 함수를 호출한 곳으로 전달됩니다.
                 </p>
                 <pre><code>{
-    // 선언적 함수
-    func = () => {
-        return "09. 함수가 실행되었습니다.";
-    }
-    console.log(func());
+        // 선언적 함수
+        func = () => {
+            return "09. 함수가 실행되었습니다.";
+        }
+        console.log(func());
 
-    // 익명 함수
-    const func1 = () => {
-        return "09. 함수가 실행되었습니다.";
-    }
-    console.log(func1());
+        // 익명 함수
+        const func1 = () => {
+            return "09. 함수가 실행되었습니다.";
+        }
+        console.log(func1());
 }</code></pre>
                 <div class="result">
                     <details>
@@ -346,38 +346,39 @@
                     매개변수는 함수 정의 시 괄호 안에 나열됩니다.
                 </p>
                 <pre><code>{
-    // 익명 함수(화살표 함수) + 매개변수 + 리턴값
-    const func = (str) => {
-        return str;
-    }
-    console.log(func("10. 함수가 실행되었습니다."));
+        // 익명 함수(화살표 함수) + 매개변수 + 리턴값
+        const func = (str) => {
+            return str;
+        }
+        console.log(func("10. 함수가 실행되었습니다."));
 
-    // 매개변수 하나이면 괄호 생략 가능
-    const func2 = str => {
-        return str;
-    }
-    console.log(func2("10. 함수가 실행되었습니다."));
+        // 매개변수 하나이면 괄호 생략 가능
+        const func2 = str => {
+            return str;
+        }
+        console.log(func2("10. 함수가 실행되었습니다."));
 
-    // 리턴 생략
-    const func3 = str => str;
-    console.log(func3("10. 함수가 실행되었습니다."));
+        // 리턴 생략
+        const func3 = str => str;
+        console.log(func3("10. 함수가 실행되었습니다."));
 
-    // 선언적 함수(가독성X)
-    func4 = str => str;
-    console.log(func4("10. 함수가 실행되었습니다."));
+        // 선언적 함수(가독성X)
+        func4 = str => str;
+        console.log(func4("10. 함수가 실행되었습니다."));
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
                             10. 함수가 실행되었습니다.<br>
-                            10. 함수가 실행되었습니다.
+                            10. 함수가 실행되었습니다.<br>
+                            10. 함수가 실행되었습니다.<br>
+                            10. 함수가 실행되었습니다.<br>
                         </div>
                     </details>
                 </div>
             </div>
             <!-- //sample10 -->
-
 
         </div>
         <!-- //main__sample -->

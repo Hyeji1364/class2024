@@ -1,7 +1,7 @@
 # 오늘의 수업
 [메인 페이지](https://hyeji1364.github.io/class2024/)          
 
-[자바스크립트](https://hyeji1364.github.io/class2024/javascript/index.html)   
+[자바스크립트](https://hyeji1364.github.io/class2024/javascript/index.html)
 
 [MySQL](https://hyeji1364.github.io/class2024/mysql/index.html)
 
@@ -10,9 +10,19 @@
 
 [퀴즈01](https://hyeji1364.github.io/class2024/quiz/quiz01.html)
 - 변수(const)
-- 선택자(querySelector)
-- 메서드(innerText(), classList, addEventListener, if문)
+- 선택자(querySelector())
+- 메서드(innerText(), classList.remove, addEventListener, if문)
 
+[퀴즈02](https://hyeji1364.github.io/class2024/quiz/quiz02.html)
+- 배열, 객체
+- 선택자(querySelectorAll())
+- 반복문(for(), forEach())
+- 메서드(innerHTML(), classList.add, addEventListener, if문)
+
+[퀴즈03](https://hyeji1364.github.io/class2024/quiz/quiz03.html)
+/quiz/quiz03.html
+
+bnhgvgvfff
 
 ### vscode 확장 프로그램
 Live server : 웹페이지 미리보기         

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 01.
+        {
+            test = () => {
+                console.log("01.선언적 함수");
+            }
+            test();
+        }
+
+        // 02.
+        {
+            test = () => {
+                console.log("02. 익명 함수");
+            }
+            test();
+        }
+
+        // 03.
+        {
+            test = (string) => {
+                console.log(string);
+            }
+            test("03.매개변수 함수");
+        }
+
+        //04.
+        {
+            test = () => {
+                return "04.리턴값 함수";
+            }
+            console.log(test());
+        }
+
+        //05. 매개변수 + 리턴값 함수
+        {
+            test = (string) => {
+                return string;
+            }
+            console.log(test("05"))
+        }
+
+        //06.for문
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+            console.log(("for문"))
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+
+        //07.for문
+        {
+            let num = [1, 2, 3, 4, 5, 6, 7, 8];
+            console.log(("for let num"))
+            for (let i = 0; i < num.length; i++) {
+                console.log(num[i]);
+            }
+        }
+
+        //08. forEach() (let num = [1, 2, 3, 4, 5, 6, 7, 8]) 출력
+        {
+            let num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            console.log(("forEach"))
+            num.forEach(function (ele) {
+                console.log(ele);
+            });
+        }
+
+        //09. for in(let num = [1, 2, 3, 4, 5, 6, 7, 8]) 출력)
+        let num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+        console.log(("for in"))
+        for (let ele in num) {
+            console.log(ele);
+        }
+
+        // 10. for of(let num = [1, 2, 3, 4, 5, 6, 7, 8]) 출력)
+        {
+            let num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            console.log(("for of"))
+            for (let ele of num) {
+                console.log(ele);
+            }
+        }
+
+        //11.map (let num = [1, 2, 3, 4, 5, 6, 7, 8]) 출력)
+        {
+            let num = [1, 2, 3, 4, 5, 6, 7, 8];
+
+            console.log(("map()"))
+            num.map(function (ele) {
+                console.log(ele);
+            });
+        }
+
+        //12.filter(let num=[1,2,3,4,5,6,7,8]) 출력
+
+    </script>
+</body>
+
+</html>

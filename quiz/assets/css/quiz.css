@@ -197,6 +197,62 @@ body::after {
     line-height: 1.4;
 }
 
+.quiz__main .choices {
+    margin-bottom: 20px;
+}
+
+.quiz__main .choices label {
+    display: block;
+    width: 100%;
+}
+
+.quiz__main .choices label input {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.quiz__main .choices label span {
+    border: 1px solid #eee;
+    padding: 17px;
+    display: flex;
+    margin-bottom: 10px;
+    border-radius: 3px;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.quiz__main .choices label span:hover {
+    border-color: #2c7898;
+    color: #2c7898;
+    box-shadow: 1px 1px 5px #41b4e5a1;
+}
+
+.quiz__main .choices label span::before {
+    content: '';
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 4px #3d9fca;
+    margin-right: 13px;
+    transition: all 0.3s;
+}
+
+.quiz__main .choices label input:checked+span::before {
+    box-shadow: inset 0 0 0 9px #3d9fca;
+}
+
+.quiz__main .choices label input:checked+span {
+    border-color: #3d9fca;
+    color: #3d9fca;
+    box-shadow: 1px 1px 5px #3da0cac0;
+    background-color: #e9e4ff60;
+}
+
 .quiz__main .input input {
     width: 100%;
     padding: 20px;
@@ -204,8 +260,10 @@ body::after {
     border-radius: 3px;
     font-size: 16px;
     color: #666;
+    line-height: 1.5;
     margin-bottom: 10px;
 }
+
 
 .quiz__main .answer {
     border: 1px solid #41b4e5;

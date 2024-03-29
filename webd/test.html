@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>레이아웃 TEST</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+            background-color: #bbb;
+        }
+
+        #header .header__container {
+            width: 1200px;
+            height: 100px;
+            background-color: #f0bbbb;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        #slider {
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+        }
+
+        #slider .slider__container {
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        #slider .slider__container .slider1 {
+            width: 50%;
+            height: 300px;
+            background-color: #f0aaaa;
+        }
+
+        #slider .slider__container .slider2 {
+            width: 50%;
+            height: 150px;
+            background-color: #e78282;
+        }
+
+        #slider .slider__container .slider2 .slider2-1 {
+            width: 300px;
+            height: 150px;
+            background-color: #e37575;
+        }
+
+        #slider .slider__container .slider2 .slider2-1 {
+            width: 300px;
+            height: 150px;
+            background-color: #e47272;
+        }
+
+
+        #contents {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+        }
+
+        #contents .contents__container {
+            width: 1200px;
+            height: 200px;
+            background-color: #e88686;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        #contents .contents__container .content1 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #e88686;
+            margin: 0 auto;
+        }
+
+        #contents .contents__container .content2 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #e67272;
+            margin: 0 auto;
+        }
+
+        #contents .contents__container .content3 {
+            width: 33.3333%;
+            height: 200px;
+            background-color: #e65c5c;
+            margin: 0 auto;
+        }
+
+
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #ddc9c9;
+        }
+
+        #footer .footer__container {
+            width: 1200px;
+            height: 100px;
+            background-color: #bdb2b2;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        #footer .footer__container .footer1 {
+            width: 20%;
+            height: 100px;
+            background-color: #e4acac;
+        }
+
+        #footer .footer__container .footer2 {
+            width: 60%;
+            height: 100px;
+            background-color: #dd7e7e;
+        }
+
+        #footer .footer__container .footer3 {
+            width: 20%;
+            height: 100px;
+            background-color: #da4646;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header__container"></div>
+        </header>
+
+        <article id="slider">
+            <section class="slider__container">
+                <div class="slider1"></div>
+                <div class="slider2">
+                    <div class="slider2-1"></div>
+                    <div class="slider2-2"></div>
+                </div>
+            </section>
+
+        </article>
+
+        <main id="contents">
+            <div class="contents__container">
+                <div class="content1"></div>
+                <div class="content2"></div>
+                <div class="content3"></div>
+
+
+            </div>
+        </main>
+
+        <footer id="footer">
+            <div class="footer__container">
+                <div class="footer1"></div>
+                <div class="footer2"></div>
+                <div class="footer3"></div>
+
+            </div>
+
+        </footer>
+    </div>
+</body>
+
+</html>
