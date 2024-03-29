@@ -22,7 +22,6 @@
 [퀴즈03](https://hyeji1364.github.io/class2024/quiz/quiz03.html)
 /quiz/quiz03.html
 
-bnhgvgvfff
 
 ### vscode 확장 프로그램
 Live server : 웹페이지 미리보기         
