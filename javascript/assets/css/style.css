@@ -163,14 +163,14 @@ li {
 
 #header nav ul li a {
     font-family: var(--fontN);
-    border: 1px solid #df5a43;
+    border: 1px solid #d64025;
     padding: 10px 20px;
     display: inline-block;
-    color: #df5657;
+    color: #d64025;
 }
 
 #header nav ul li.active a {
-    background-color: #df5657;
+    background-color: #d64025;
     color: #fff;
 }
 
@@ -181,7 +181,7 @@ li {
 }
 
 .main__menu ul li a {
-    color: #df5657;
+    color: #d64025;
     line-height: 1.7;
     font-family: var(--fontN);
 }
