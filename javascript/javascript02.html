@@ -64,10 +64,10 @@
                     변수에 저장된 데이터를 읽어오는 것을 말합니다.<br>
                 </p>
                 <pre><code>{
-    let x = 100, y = 200, z = "javascript";
+        let x = 100, y = 200, z = "javascript";
 
-    console.log("01. 변수 : 데이터 불러오기");
-    console.log(x, y, z);
+        console.log("01. 변수 : 데이터 불러오기");
+        console.log(x, y, z);
 }</code></pre>
                 <div class="result">
                     <details>
@@ -89,10 +89,10 @@
                     상수는 한 번 값이 정해지면 변경할 수 없는 변수를 의미합니다.
                 </p>
                 <pre><code>{
-    const x = 100, y = 200, z = "javascript";
+        const x = 100, y = 200, z = "javascript";
 
-    console.log("02. 상수 : 데이터 불러오기");
-    console.log(x, y, z);
+        console.log("02. 상수 : 데이터 불러오기");
+        console.log(x, y, z);
 }</code></pre>
                 <div class="result">
                     <details>
@@ -111,13 +111,13 @@
                 <h3>03. 배열 : 데이터 불러오기</h3>
                 <p>
                     배열에 저장된 데이터를 읽어오는 것을 말합니다.<br>
-                    배열은 여러 개의 데이터를 ㄹ저장하는 공간입니다.
+                    배열은 여러 개의 데이터를 저장하는 공간입니다.
                 </p>
                 <pre><code>{
-    const arr = [100, 200, "javascript"];
+        const arr = [100, 200, "javascript"];
 
-    console.log("03.배열 : 데이터 불러오기");
-    console.log(arr[0], arr[1], arr[2]);
+        console.log("03.배열 : 데이터 불러오기");
+        console.log(arr[0], arr[1], arr[2]);
 }</code></pre>
                 <div class="result">
                     <details>
@@ -140,10 +140,10 @@
                     - 배열의 크기를 반환하는 내장 함수인 length를 사용합니다.
                 </p>
                 <pre><code>{
-    const arr = [100, 200, "javascript"];
+        const arr = [100, 200, "javascript"];
 
-    console.log("04.배열 : 데이터 불러오기: 갯수");
-    console.log(arr.length);    // 3
+        console.log("04.배열 : 데이터 불러오기: 갯수");
+        console.log(arr.length);    // 3
 }</code></pre>
                 <div class="result">
                     <details>
@@ -163,10 +163,10 @@
                     for()문은 반복문으로, 특정 조건이 만족될 때까지 반복해서 실행됩니다.
                 </p>
                 <pre><code>{
-    const arr = [100, 200, "javascript"];
+        const arr = [100, 200, "javascript"];
 
-    console.log("04.배열 : 데이터 불러오기: 갯수");
-    console.log(arr.length);    // 3
+        console.log("04.배열 : 데이터 불러오기: 갯수");
+        console.log(arr.length);    // 3
 }</code></pre>
                 <div class="result">
                     <details>
@@ -194,21 +194,21 @@
                     함수를 호출할 때마다 배열의 다으 요소로 이동하며, 모든 요소를 처리할 때까지 반복합니다.
                 </p>
                 <pre><code>{
-    const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+        const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-    console.log("06.배열 : 데이터 불러오기: forEach()문");
-    // 01
-    arr.forEach(function (element) {
-        console.log(element);
-    });
-    // 02
-    arr.forEach(function (element, index) {
-        console.log(index);
-    });
-    //03
-    arr.forEach(function (element, index, array) {
-        console.log(array);
-    });
+        console.log("06.배열 : 데이터 불러오기: forEach()문");
+        // 01
+        arr.forEach(function (element) {
+            console.log(element);
+        });
+        // 02
+        arr.forEach(function (element, index) {
+            console.log(index);
+        });
+        //03
+        arr.forEach(function (element, index, array) {
+            console.log(array);
+        });
 }</code></pre>
                 <div class="result">
                     <details>
@@ -255,12 +255,12 @@
                     for of문은 ES6에서 새롭게 추가된 구문으로, 기존의 for문보다 더 간결하고 직관적으로 배열의 요소를 순회할 수 있습니다.
                 </p>
                 <pre><code>{
-    const num = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+        const num = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-    console.log("07.배열 : 데이터 불러오기: for of");
-    for (let element of num) {
-        console.log(element);
-    }
+        console.log("07.배열 : 데이터 불러오기: for of");
+        for (let element of num) {
+            console.log(element);
+        }
 }</code></pre>
                 <div class="result">
                     <details>
@@ -289,12 +289,12 @@
                     for in문은 객체의 속성을 순회하는 데에도 사용됩니다.
                 </p>
                 <pre><code>{
-    const num = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+        const num = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-    console.log("08.배열 : 데이터 불러오기: for in");
-    for (let element in num) {
-        console.log(num[element]);
-    }
+        console.log("08.배열 : 데이터 불러오기: for in");
+        for (let element in num) {
+            console.log(num[element]);
+        }
 }</code></pre>
                 <div class="result">
                     <details>
@@ -322,22 +322,22 @@
                     map()함수는 배열의 각 요소에 대해 특정 작업을 수행하고, 그 결과를 새로운 배열로 반환하는 함수입니다.
                 </p>
                 <pre><code>{
-    const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
+        const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
-    console.log("09.배열 : 데이터 불러오기: map()");
+        console.log("09.배열 : 데이터 불러오기: map()");
 
-    arr.map(function (element) {
-        console.log(element);
-    });
+        arr.map(function (element) {
+            console.log(element);
+        });
 
 
-    arr.map(function (element, index) {
-        console.log(index);
-    });
+        arr.map(function (element, index) {
+            console.log(index);
+        });
 
-    arr.map(function (element, index, array) {
-        console.log(array);
-    });
+        arr.map(function (element, index, array) {
+            console.log(array);
+        });
 }</code></pre>
                 <div class="result">
                     <details>
@@ -384,36 +384,36 @@
                     filter() 함수는 배열의 요소를 순회하면서 콜백 함수를 사용하여 원하는 조건에 따라 필터링하는 함수입니다.
                 </p>
                 <pre><code>{
-    const num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-    console.log("10++++++");
-    num.filter(function (element) {
-        console.log(element);
-    });                                 // 
+        console.log("10++++++");
+        num.filter(function (element) {
+            console.log(element);
+        });                                 // 
 
-    num.filter(function (element, index) {
-        console.log(element);
-    });
+        num.filter(function (element, index) {
+            console.log(element);
+        });
 
-    num.filter(function (element, index, array) {
-        console.log(element);
-    });
+        num.filter(function (element, index, array) {
+            console.log(element);
+        });
 
-    const arr = num.filter(function (element) {
-        return element > 5;
-    });
+        const arr = num.filter(function (element) {
+            return element > 5;
+        });
 
-    const arr1 = num.filter((element) => {
-        return element > 5;
-    });
+        const arr1 = num.filter((element) => {
+            return element > 5;
+        });
 
-    const arr2 = num.filter(element => {
-        return element > 5;
-    });
+        const arr2 = num.filter(element => {
+            return element > 5;
+        });
 
-    const arr3 = num.filter(e => e > 5);    //return 생략
+        const arr3 = num.filter(e => e > 5);    //return 생략
 
-    console.log(arr)
+        console.log(arr)
 }</code></pre>
                 <div class="result">
                     <details>
@@ -445,18 +445,27 @@
             <!-- //sample10 -->
 
             <div id="sample11" class="sample">
-                <h3>11. 배열: 데이터 불러오기: 배열 펼침연산자
+                <h3>11. 배열: 데이터 불러오기: 배열 구조분해할당
                 </h3>
                 <p>
+                    배열 구조 분해 할당은 배열의 요소를 개별 변수에 할당하는 JavaScript의 기능입니다. 이를 통해 배열의 각 요소를 쉽게 접근하고 처리할 수 있습니다.
                 </p>
                 <pre><code>{
-   
+        // 기본 변수 할당
+        const arr = [100, 200, "javascript"];
+        const [a, b, c] = arr;
+
+        console.log(a);     //100
+        console.log(b);     //200
+        console.log(c);     //javascript
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-
+                            100<br>
+                            200<br>
+                            javascript
                         </div>
                     </details>
                 </div>
@@ -464,18 +473,46 @@
             <!-- //sample11 -->
 
             <div id="sample12" class="sample">
-                <h3>12. 배열: 데이터 불러오기: 배열 구조 분해 할당
+                <h3>12. 배열: 데이터 불러오기: 배열 펼침 연산자(Spread Operator)
                 </h3>
                 <p>
+                    배열 구조 분해 할당은 배열의 요소를 개별 변수에 할당하는 JavaScript의 기능입니다.<br>
+                    이를 통해 배열의 각 요소를 쉽게 접근하고 처리할 수 있습니다.
                 </p>
                 <pre><code>{
+            // 배열 복사
+            const arr = [100, 200, "javascript"];
+        const copy = [...arr];
 
+        console.log("배열 복사")
+        console.log(arr)       // [100, 200, "javascript"];
+        console.log(...arr)     // 100 200 "javascript"
+        console.log(copy)       // [100, 200, "javascript"];
+    }
+    {
+        // 배열 합치기
+        const arr1 = [100, 200];
+        const arr2 = [300, 400];
+        const merged1 = [...arr1, ...arr2];
+        const merged2 = [...arr1, "javascript", ...arr2, "jquery"];
+
+        console.log("배열 합치기")
+        console.log(arr1.concat(arr2));         // [100, 200, 300, 400]
+        console.log(merged1);       // [100, 200, 300, 400]
+        console.log(merged2);       // [100, 200, javascript, 300, 400, jquery]
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-
+                            배열복사 <br>
+                            [100, 200, "javascript"];<br>
+                            100 200 javascript<br>
+                            [100, 200, "javascript"];<br>
+                            배열합치기<br>
+                            [100, 200,300,400];<br>
+                            [300, 200, 300, 400];<br>
+                            [100,200,javascript,300,400,jquery]
                         </div>
                     </details>
                 </div>
@@ -486,7 +523,8 @@
                 <h3>13. 객체: 데이터 불러오기: 기본
                 </h3>
                 <p>
-
+                    객체의 속성 값이 함수인 경우, 이를 메서드라고 부릅니다.<br>
+                    객체 생성 및 접근 : 객체를 생성한 후, 점 표기법이나 대괄호 표기법을 사용하여 객체의 속성에 접근할 수 있습니다.
                 </p>
                 <pre><code>{
     {
@@ -495,7 +533,6 @@
             b: 200,
             c: "javascript"
         }
-        console.log("13........");
         console.log(obj.a);
         console.log(obj.b);
         console.log(obj.c);
@@ -529,12 +566,12 @@
                     앞의 내용을 불러옵니다. (a,b,c)
                 </p>
                 <pre><code>{
-    const obj = {
-        a: 100,
-        b: 200,
-        c: "javascript"
-    }
-    console.log(Object.keys(obj))       // a,b,c 
+        const obj = {
+            a: 100,
+            b: 200,
+            c: "javascript"
+        }
+        console.log(Object.keys(obj))       // a,b,c 
 }</code></pre>
                 <div class="result">
                     <details>
@@ -555,12 +592,12 @@
                     아래의 함수에서는 값을 100, 200, 300으로 가져옵니다.
                 </p>
                 <pre><code>{
-    const obj = {
-        a: 100,
-        b: 200,
-        c: "javascript"
-    }
-    console.log(Object.values(obj))
+        const obj = {
+            a: 100,
+            b: 200,
+            c: "javascript"
+        }
+        console.log(Object.values(obj))
 }</code></pre>
                 <div class="result">
                     <details>
@@ -591,7 +628,9 @@
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            [[ 'a', 100 ], [ 'b', 200 ], [ 'c', 'javascript' ]]
+                            [ 'a', 100 ]<br>
+                            [ 'b', 200 ]<br>
+                            [ 'c', 'javascript' ]
                         </div>
                     </details>
                 </div>
@@ -647,22 +686,22 @@
 
                 </p>
                 <pre><code>{
-    const obj = {
-        a: 100,
-        b: 200,
-        c: "javascript"
-    }
+        const obj = {
+            a: 100,
+            b: 200,
+            c: "javascript"
+        }
 
-    console.log(obj.hasOwnProperty("a"));   // true
-    console.log(obj.hasOwnProperty("b"));   // true
-    console.log(obj.hasOwnProperty("c"));   // true
-    console.log(obj.hasOwnProperty("d"));   // false
+        console.log(obj.hasOwnProperty("a"));   // true
+        console.log(obj.hasOwnProperty("b"));   // true
+        console.log(obj.hasOwnProperty("c"));   // true
+        console.log(obj.hasOwnProperty("d"));   // false
 
-    // in 연산자
-    console.log("a" in obj);         // true
-    console.log("b" in obj);         // true
-    console.log("c" in obj);         // true
-    console.log("d" in obj);         // false
+        // in 연산자
+        console.log("a" in obj);         // true
+        console.log("b" in obj);         // true
+        console.log("c" in obj);         // true
+        console.log("d" in obj);         // false
 }</code></pre>
                 <div class="result">
                     <details>
@@ -689,20 +728,20 @@
                     자바스크립트에서 객체의 for in 문은 객체의 모든 속성을 순회하는 데 사용되는 반복문입니다.<br>
                 </p>
                 <pre><code>{
-    const obj = {
-        a: 100,
-        b: 200,
-        c: "javascript"
-    }
+        const obj = {
+            a: 100,
+            b: 200,
+            c: "javascript"
+        }
 
-    // 01.
-    for (let el in obj) {
-        console.log(el + " : " + obj[el]);
-    }
+        // 01.
+        for (let el in obj) {
+            console.log(el + " : " + obj[el]);
+        }
 
-    // 02.
-    for (let el in obj) {
-        console.log(el)
+        // 02.
+        for (let el in obj) {
+            console.log(el)
     }
 }</code></pre>
                 <div class="result">
@@ -723,16 +762,193 @@
             <!-- //sample19 -->
 
             <div id="sample20" class="sample">
-                <h3>0
+                <h3>20. 객체: 데이터 불러오기: 객체 구조 분해 할당
                 </h3>
                 <p>
                 </p>
                 <pre><code>{
+        const obj = {
+            a: 100,         // 100
+            b: 200,         // 200
+            c: "javascript"         // javascript
+        };
+
+        const { a, b, c } = obj;
+        console.log(a);     // 100
+        console.log(b);     // 200
+        console.log(c);     // javascript
+    }
+    {
+        // 기본 값 할당
+        const obj = {
+            a: 100,
+            b: 200
+        }
+        const { a, b, c = "javascript" } = obj;
+
+        console.log(a);     // 100
+        console.log(b);     // 200
+        console.log(c);     // javascript
+    }
+    {
+        // 새로운 이름으로 변경
+        const obj = {
+            a: 100,
+            b: 200,
+            c: "javascript"
+        }
+
+        const { a: x, b: y, c: z } = obj;
+
+        console.log(x);         // 100
+        console.log(y);         // 200
+        console.log(z);         // javascript
+    }
+    {
+        // 20-4
+        const obj = {
+            a: 100,
+            b: { c: 200, d: "javascript" },
+        }
+        const { a, b: { c, d } } = obj
+
+        console.log("20-4")
+        console.log(a);     // 100
+        console.log(c);     // 200
+        console.log(d);     // javascript
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
+                            100<br>
+                            200<br>
+                            javascript<br>
+                            100<br>
+                            200<br>
+                            javascript<br>
+                            100<br>
+                            200<br>
+                            javascript<br>
+                            100<br>
+                            200<br>
+                            javascript<br>
+                            100<br>
+                            200<br>
+                            javascript<br>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample -->
+
+            <div id="sample21" class="sample">
+                <h3>21. 객체: 데이터 불러오기: 객체 펼침연산자
+                </h3>
+                <p>
+                    객체 펼침 연산자(Spread Operator)는 객체의 속성을 개별적으로 분리하거나, 여러 객체의 속성을 하나의 객체로 합칠 때 사용하는 연산자입니다.<br>
+                    펼침 연산자를 사용하면 두 객체의 속성을 하나의 객체로 합칠 수 있습니다.
+                </p>
+                <pre><code> {
+        const obj1 = { a: 100, b: 200 }
+        const obj2 = { c: 300, d: 400 }
+        const merge1 = { ...obj1, ...obj2 }
+        const merge2 = { ...obj1, x: "javascript", ...obj2, y: "jquery" }
+
+        console.log(obj1)
+        console.log(merge1);
+        console.log(merge2);
+}
+</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            { a: 100, b: 200 }<br>
+                            { a: 100, b: 200, c: 300 , d: 400}<br>
+                            { a: 100, b: 200, x: "javascript", c: 300 , d: 400, y: "jquery"}
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample -->
+
+            <div id="sample22" class="sample">
+                <h3>22. 서버 데이터 불러오기: XMLHttpRequest
+                </h3>
+                <p>
+                    XMLHttpRequest(XHR)는 웹 브라우저에서 서버와 데이터를 주고받기 위해 사용되는 객체입니다. 다음과 같은 특징을 가지고 있습니다.<br>
+                    <br>
+                    1. 비동기 통신: 서버와 데이터를 주고받을 때 비동기 방식으로 동작합니다.<br>
+                    이는 클라이언트가 서버의 응답을 기다리는 동안에도 다른 작업을 수행할 수 있다는 것을 의미합니다.<br>
+                    <br>
+                    2.다양한 데이터 형식 지원: 서버로부터 받은 데이터를 JSON, XML 등 다양한 형식으로 처리할 수 있습니다.<br>
+                    <br>
+                    3.상태 확인 가능: 요청이 완료되었는지, 오류가 발생했는지 등의 상태를 확인할 수 있습니다.<br>
+                    <br>
+                    4.콜백 함수 사용: 서버로부터 받은 데이터를 처리하기 위해 콜백 함수를 사용합니다.<br>
+                    <br>
+                    5.보안 기능 제공: 데이터 전송 시 암호화를 지원하며, 서버의 인증을 요구할 수 있습니다.<br>
+                </p>
+                <pre><code>{
+            {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json", true);
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var responseData = xhr.responseText;
+                var jsonData = JSON.parse(responseData);
+
+                console.log(jsonData);
+            } else if (xhr.readyState === 4) {
+                console.error("데이터 불러오기 오류: " + xhr.status);
+                        }
+                };
+
+        xhr.send();
+            }
+}</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            { a: 100, b: 200 }<br>
+                            { a: 100, b: 200, c: 300 , d: 400}<br>
+                            { a: 100, b: 200, x: "javascript", c: 300 , d: 400, y: "jquery"}
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample -->
+
+            <div id="sample23" class="sample">
+                <h3>23. 서버 데이터 불러오기: fetch API
+                </h3>
+                <p>
+                    fetch API는 자바스크립트에서 서버와 데이터를 주고받기 위한 API입니다.<br>
+                    XMLHttpRequest와 유사하지만, 더 간결하고 사용하기 쉽습니다.<br>
+                    fetch API는 웹 개발에서 매우 유용하게 사용됩니다.<br>
+                    서버와 데이터를 주고받을 때 발생하는 오류를 처리하고, 보안에 신경써야 합니다.
+                </p>
+                <pre><code>{
+        fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error("데이터 불러오기 오류:", error);
+            })
+}</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json의 결과값<br>
+                            https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json의 결과값
                         </div>
                     </details>
                 </div>
@@ -1088,7 +1304,6 @@
             console.log(c);     // javascript
         }
         {
-
             // 기본 값 할당
             const obj = {
                 a: 100,
@@ -1129,6 +1344,7 @@
             console.log(c);     // 200
             console.log(d);     // javascript
         }
+
         // 21. 객체: 데이터 불러오기: 객체 펼침연산자
         {
             const obj1 = { a: 100, b: 200 }
@@ -1163,12 +1379,10 @@
             }
         }
         // 23. 서버 데이터 불러오기: fetch API
-
-        // 22번과 같은 방식
         {
             fetch("https://webstoryboy.github.io/webs2024/json/gineungsaJC2011_05.json")
                 .then(response => {
-                    return Response.json();
+                    return response.json();
                 })
                 .then(data => {
                     console.log(data);

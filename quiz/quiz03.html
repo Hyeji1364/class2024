@@ -56,8 +56,8 @@
                         </label>
 
                     </div>
-                    <div class="answer"></div>
-                    <div class="desc"></div>
+                    <div class="answer none"></div>
+                    <div class="desc none"></div>
                 </div>
                 <div class="quiz__footer">
                     <button class="confirm">정답 확인하기</button>
@@ -78,10 +78,11 @@
         const quizHeader = quizWrap.querySelector(".quiz__header");
         const quizType = quizWrap.querySelector(".quiz__header .type");
         const quizQuestion = quizWrap.querySelector(".quiz__main .question");
-        const quizChoices = quizWrap.querySelector(".quiz__main .choices");
         const quizAnswer = quizWrap.querySelector(".quiz__main .answer");
         const quizDesc = quizWrap.querySelector(".quiz__main .desc");
-        const quizConfirm = quizWrap.querySelector(".quiz__main .confirm");
+        const quizConfirm = quizWrap.querySelector(".quiz__footer .confirm");
+        const quizChoices = quizWrap.querySelectorAll(".quiz__main .choices span");
+        const quizSelects = quizWrap.querySelectorAll(".quiz__main .choices input");
 
         // 문제 정보
         const quizInfo = {
@@ -89,7 +90,7 @@
             type: "정보처리기능사",
             num: "01",
             question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
-            answer: "opcode",
+            answer: "4",
             choices: ["operand", "length", "question mark", "opcode"],
             desc: "채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다."
         }
@@ -97,6 +98,44 @@
         // 문제 출력
         quizHeader.innerHTML = quizInfo.date + " " + quizInfo.type;
         quizQuestion.innerHTML = quizInfo.num + ". " + quizInfo.question;
+        quizAnswer.innerHTML = quizInfo.answer;
+        quizDesc.innerHTML = quizInfo.desc;
+
+        // quizChoices[0].innerHTML = quizInfo.choices[0]
+        // quizChoices[1].innerHTML = quizInfo.choices[1]
+        // quizChoices[2].innerHTML = quizInfo.choices[2]
+        // quizChoices[3].innerHTML = quizInfo.choices[3]
+
+        for (let i = 0; i < quizChoices.length; i++) {
+            quizChoices[i].innerHTML = quizInfo.choices[i];
+        }
+
+        // 정답확인
+        quizConfirm.addEventListener("click", () => {
+            let selectedChoice = null;
+
+            // 보기 선택
+            for (let i = 0; i < quizSelects.length; i++) {
+                if (quizSelects[i].checked) {
+                    selectedChoice = quizSelects[i].value;
+                    break;
+                }
+            }
+
+            // 정답 확인
+            if (selectedChoice !== null) {
+                if (selectedChoice == quizInfo.answer) {
+                    alert("정답입니다.");
+                    quizDesc.classList.remove("none");
+                } else {
+                    alert("오답입니다.");
+                    quizAnswer.classList.remove("none");
+                    quizDesc.classList.remove("none");
+                }
+            } else {
+                alert("보기를 선택해주세요!! 😉");
+            }
+        });
 
     </script>
 </body>

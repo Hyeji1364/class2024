@@ -312,12 +312,11 @@
                     push() 메서드는 배열의 끝에 요소를 추가하는 메서드입니다.
                 </p>
                 <pre><code>{
+    const arr = [];
 
-const arr = [];
-
-arr.push(100);
-arr.push(200);
-arr.push("javascript");
+    arr.push(100);
+    arr.push(200);
+    arr.push("javascript");
 
 
     console.log(arr[0]);
@@ -585,14 +584,13 @@ arr.push("javascript");
 
         console.log(obj[0].a)
 
-        console.log("17. 객체 : 표현방법5");
         console.log(obj[0].a)      // 100
         console.log(obj[0].b)      // 200
         console.log(obj[0].c)      // javascript
         console.log(obj[1].a)      // 300 
         console.log(obj[1].b)      // 400
         console.log(obj[1].c)      // jquery
-                }</code></pre>
+}</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
@@ -657,7 +655,6 @@ arr.push("javascript");
         c: "javascript"
         }
 
-    console.log("19. 객체 : 표현방법7");
     console.log(obj.a)        //100
     console.log(obj.b.x)      //200
     console.log(obj.b.y)      //300
@@ -761,72 +758,99 @@ arr.push("javascript");
             </div>
             <!-- //sample21 -->
             <div id="sample22" class="sample">
-                <h3>22. 객체 : 데이터 저장(키와값) : 표현방법10 : 객체펼침연산자
+                <h3>22. 객체 : 데이터 저장(키와값) : 표현방법10 : 객체 펼침연산자
 
                 </h3>
                 <p>
+                    펼침연산자는 배열이나 문자열 등의 iterable한 객체를 개별 요소로 분리하는데 사용되며, 객체 펼침 연산자는 객체를 개별 키-값 쌍으로 분리하는데 사용됩니다.
                 </p>
                 <pre><code>{
-    const obj1 = { a: 100, b: 200}
-    const obj2 = { c: 300, d: 400}
-    const merge1 = { ...obj1, ...obj2 }
-    const merge2 = { ...obj1, x: "javascript", ...obj2, y: "jquery" }
+        const obj1 = { a: 100, b: 200, }
+        const obj2 = { c: 300, d: 400, }
+        const merge1 = { ...obj1, ...obj2 }
+        const merge2 = { ...obj1, x: "javascript", ...obj2, y: "jquery" }
 
-    console.log(obj1);  { a: 100, b: 200 }
-    console.log(merge1); { a: 100, b: 200, c: 300, d: 400 }
-    console.log(merge2); { a: 100, b: 200, x: "javascript", c: 300, d: 400, y: "jquery"}
+        console.log(obj1);  
+        console.log(merge1);
+        console.log(merge2); 
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
                             { a: 100, b: 200 }<br>
-                            { a: 100, b: 200, c: 300, d: 400 } <br>
-                            { a: 100, b: 200, x: "javascript", c: 300, d: 400, y: "jquery"}
+                            { a: 100, b: 200, c: 300, d: 400 }<br>
+                            { a: 100, b: 200, x: "javascript", c: 300, d: 400, y: "jquery"}<br>
                         </div>
                     </details>
                 </div>
             </div>
             <!-- //sample22 -->
-
             <div id="sample23" class="sample">
                 <h3>23. 파일 : 데이터 교환(JSON)
-
                 </h3>
                 <p>
-                    객체 구조 분해 할당은 객체의 속성을 별도의 변수로 추출할 수 있게 하는 JavaScript의 표현식입니다.<br />
-                    구조 분해 할당을 사용하면 객체 내부의 키와 매칭되는 변수에 직접 값을 할당할 수 있으며, 복잡한 객체도 쉽게 다룰 수 있습니다.
+                    JSON(JavaScript Object Notation)은 데이터 교환을 위해 사용되는 경량화된 데이터 형식입니다.
+                    다음과 같은 특징을 가지고 있습니다.
+                    - 텍스트 형식으로 이루어져 있어 사람이 읽고 쓰기가 쉬우며, 기계가 구문 분석하고 생성하기도 쉽습니다.
+                    - 데이터를 키-값 쌍으로 표현합니다.
+                    - 중괄호({}) 안에 쉼표(,)로 구분하여 나열됩니다.
+                    - 다양한 프로그래밍 언어에서 지원되는 데이터 교환 형식으로, 파싱이 용이하다는 장점이 있습니다.
                 </p>
-                <pre><code>{
-        const obj1 = { a: 100, b: 200 }
-        const obj2 = { c: 300, d: 400 }
-        const merge1 = { ...obj1, ...obj2 }
-        const merge2 = { ...obj1, x: "javascript", ...obj2, y: "jquery" }
+                <pre><code>  {
+    // 01. JSON 데이터  --&gt; 객체 변환
+    const jsonString = '{ "name": "Hwang", "age": 30}';
+    const jsonObject = JSON.parse(jsonString);
 
-        console.log("22. 객체 : 표현방법10");
-        console.log(obj1)       // { a: 100, b: 200 }
-        console.log(merge1);      // { a: 100, b: 200, c: 300 , d: 400}
-        console.log(merge2)       // { a: 100, b: 200, x: "javascript", c: 300 , d: 400, y: "jquery"}
-        console.log(obj2.c)
-        console.log(obj2.d)
-        console.log(obj3)       
+    console.log(jsonObject.name);       // Hwang
+    console.log(jsonObject.age);        // 30
+}
+{
+    // 02. 객체 파일 --&gt; JSON 데이터
+    const person = { name: "Hwang", age: 30 }
+    const jsonString = JSON.stringify(person);
+
+    console.log(jsonString);        // {"name": "Hwang", "age": 30}
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            100<br>
-                            200<br>
-                            javascript<br>
+                            Hwang<br>
+                            30<br>
+                            {"name": "Hwang", "age": 30}
                         </div>
                     </details>
                 </div>
             </div>
-            <!-- //sample22 -->
-
-
-
-
+            <!-- //sample23 -->
+            <div id="sample24" class="sample">
+                <h3>24. 연산자
+                </h3>
+                <p>
+                    연산자는 프로그래밍에서 데이터를 처리하고 결과를 생성하기 위해 사용되는 기호나 키워드입니다.<br>
+                    다양한 종류의 연산자가 있으며, 각각의 연산자는 특정한 연산을 수행합니다.<br>
+                    <br>
+                    1. 산술 연산자 : 덧셈, 뺄셈, 곱셈, 나눗셈 등의 산술 연산을 수행하는 연산자입니다. +, -, *,/,% 등이 있습니다.<br>
+                    <br>
+                    2.비교 연산자 : ==,!=,<,>,<=,>= 등이 있으며, 두 값의 비교 결과를 불리언 값으로 반환합니다.<br>
+                            예를 들어, x > y는 x가 y보다 크면 참(true)을, 그렇지 않으면 거짓(false)를 반환합니다.<br>
+                            <br>
+                            3. 논리 연산자 : &&(AND), ||(OR), !(NOT) 등이 있으며, 불리언 값들 사이의 논리적 연산을 수행합니다.<br>
+                            예를 들어, x && y는 x와 y 모두 참일 때만 참을 반환합니다.<br>
+                            <br>
+                            4. 비트 연산자: &, |, ^, !, <<,>> 등이 있으며, 비트 단위의 연산을 수행합니다. 예를 들어, x & y는 x와 y의 비트 AND 연산을 수행합니다
+                </p>
+                <pre><code></code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample24 -->
 
         </div>
         <!-- //main__sample -->
@@ -985,58 +1009,52 @@ arr.push("javascript");
                 a: 100,
                 b: [200, 300],
                 c: { x: 400, y: 500 },
-                d: "javascrirpt",
+                d: "javascript",
                 e: function () {
                     console.log("javascript가 실행되었습니다.");
                 },
-                e: function () {
-                    console.log(obj.d + "javascript가 실행되었습니다.");
-
-                },
                 f: function () {
-                    console.log(this.d + "javascript가 실행되었습니다.");
+                    console.log(obj.d + "가 실행되었습니다.");
+                },
+                g: function () {
+                    console.log(this.d + "가 실행되었습니다.");
                 },
             }
+
+            console.log(obj.a);
+            console.log(obj.b[0]);
+            console.log(obj.b[1]);
+            console.log(obj.b.x);
+            console.log(obj.b.y);
+            console.log(obj.d);
+            obj.e();
+            obj.f();
+            obj.g();
         }
-
-        console.log("20. 객체 : 표현방법8");
-        console.log(obj.a);     //100
-        console.log(obj.b[0]);  //200
-        console.log(obj.b[1]);  //300
-        console.log(obj.c.x);  //300
-        console.log(obj.c.y);   // 500
-        obj.e();     //javascript가 실행되었습니다.
-        obj.f();    //javascript가 실행되었습니다. 
-        obj.g();    // javascript가 실행되었습니다.
-
         // 21. 객체 : 데이터 저장(키와값) : 표현방법9 : 객체구조분해할당
         {
             const obj = {
                 a: 100,
                 b: 200,
-                c: "javascript",
+                c: "javascript"
             }
-
             const { a, b, c } = obj;
 
-            console.log("21. 객체 : 표현방법9");
             console.log(a);
             console.log(b);
             console.log(c);
         }
-        // 22. 객체 : 데이터 저장(키와값) : 표현방법10 : 객체펼침연산자
+
+        // 22. 객체 : 데이터 저장(키와값) : 표현방법10 : 객체 펼침연산자
         {
-            const obj1 = { a: 100, b: 200 }
-            const obj2 = { c: 300, d: 400 }
+            const obj1 = { a: 100, b: 200, }
+            const obj2 = { c: 300, d: 400, }
             const merge1 = { ...obj1, ...obj2 }
             const merge2 = { ...obj1, x: "javascript", ...obj2, y: "jquery" }
 
-            console.log(obj1)       // { a: 100, b: 200 }
-            console.log(merge1);      // { a: 100, b: 200, c: 300 , d: 400}
-            console.log(merge2);       // { a: 100, b: 200, x: "javascript", c: 300 , d: 400, y: "jquery"}
-            console.log(obj2.c)
-            console.log(obj2.d)
-            console.log(obj3)
+            console.log(obj1);  // { a: 100, b: 200 }
+            console.log(merge1); // { a: 100, b: 200, c: 300, d: 400 }
+            console.log(merge2); // { a: 100, b: 200, x: "javascript", c: 300, d: 400, y: "jquery"}
         }
 
         // 23. 파일 : 데이터 교환(JSON)
@@ -1055,6 +1073,8 @@ arr.push("javascript");
 
             console.log(jsonString);        // {"name": "Hwang", "age": 30}
         }
+
+        // 24. 연산자
     </script>
 
 </body>

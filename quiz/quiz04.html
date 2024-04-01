@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 03</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="lndex.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li class="active"><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="quiz__wrap"></div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hyeji1364@gmail.com">hyeji1364@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2021년 1회",
+                type: "정보처리기능사",
+                question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
+                choices: {
+                    1: "operand",
+                    2: "length",
+                    3: "question mark",
+                    4: "opcode",
+                },
+                answer: "4",
+                desc: "명령어의 구성명령어 코드부 + 주소부 (한글),<br> OP-code + Operand (영문)"
+            }, {
+                date: "2021년 2회",
+                type: "정보처리기능사",
+                question: "입출력 조작의 시간과 중앙처리장치의 처리시간과의 불균형을 보완하는 것은?",
+                choices: {
+                    1: "제어장치",
+                    2: "채널장치",
+                    3: "터미널장치",
+                    4: "콘솔장치",
+                },
+                answer: "2",
+                desc: "채중입 : 채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다."
+            }, {
+                date: "2021년 3회",
+                type: "정보처리기능사",
+                question: "가산기(Half-Adder)의 논리회로도에서 자리올림이 발생하는 회로는?",
+                choices: {
+                    1: "OR",
+                    2: "NOT",
+                    3: "AND",
+                    4: "ExclusiveOR",
+                },
+                answer: "3",
+                desc: "반가산기 구성: S = A XOR B, C = A AND B, <br>S : SUM(합), C : Carry(자리올림)"
+            }, {
+                date: "2021년 4회",
+                type: "정보처리기능사",
+                question: "억 장치 고유의 번지로서 0, 1, 2, 3, ...과 같이 16진수로 약속하여 순서대로 정해 놓은 번지는?",
+                choices: {
+                    1: "상대번지",
+                    2: "필수번지",
+                    3: "선택번지",
+                    4: "절대번지",
+                },
+                answer: "4",
+                desc: "절대번지는 처음부터 순서대로 0, 1, 2, 3 과같이 주소를 부여 하는 방식입니다."
+            }, {
+                date: "2021년 5회",
+                type: "정보처리기능사",
+                question: "불린(Boolean) 대수의 정리 중 틀린 것은?",
+                choices: {
+                    1: "1+A=A",
+                    2: "1·A=A",
+                    3: "0+A=A",
+                    4: "0·A=0",
+                },
+                answer: "1",
+                desc: "1 + A = 1 입니다."
+            }, {
+                date: "2021년 6회",
+                type: "정보처리기능사",
+                question: "데이터 전송 명령어의 기능이 아닌 것은?",
+                choices: {
+                    1: "상수값을 레지스터 또는 주기억장치로 전송",
+                    2: "반레지스터에 저장된 값을 연산",
+                    3: "스택에 저장된 값을 레지스터로 전송",
+                    4: "레지스터에 저장된 값을 스택으로 전송"
+                },
+                answer: "2",
+                desc: "1 + A = 1 입니다."
+            }
+        ]
+
+        // 문제 출력
+        const updateQuiz = () => {
+            const quizArray = [];
+
+            quizInfo.forEach((quiz, index) => {
+                quizArray.push(`      
+                <div class="quiz">
+                <div class="quiz__header">${quiz.date} ${quiz.type}</div>
+                <div class="quiz__main">
+                    <div class="question">${index + 1}. ${quiz.question}</div>
+                    <div class="choices">
+                        <label for="choice1-${index}">
+                            <input type="radio" id="choice1-${index}" name="chocie-${index}" value="1">
+                            <span>${quiz.choices[1]}</span>
+                        </label>
+                        <label for="choice2-${index}">
+                            <input type="radio" id="choice2-${index}" name="chocie-${index}" value="2">
+                            <span>${quiz.choices[2]}</span>
+                        </label>
+                        <label for="choice3-${index}">
+                            <input type="radio" id="choice3-${index}" name="chocie-${index}" value="3">
+                            <span>${quiz.choices[3]}</span>
+                        </label>
+                        <label for="choice4-${index}">
+                            <input type="radio" id="choice4-${index}" name="chocie-${index}" value="4">
+                            <span>${quiz.choices[4]}</span>
+                        </label>
+                    </div>
+                    <div class="answer none">${quiz.answer}</div>
+                    <div class="desc none">${quiz.desc}</div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+                `)
+
+                quizWrap.innerHTML = quizArray.join("");
+            });
+
+            console.log(quizArray);
+        }
+        updateQuiz();
+    </script>
+</body>
+
+</html>
