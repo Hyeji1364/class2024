@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>퀴즈 03</title>
+    <title>퀴즈 04</title>
     <link rel="stylesheet" href="assets/css/quiz.css">
 </head>
 
@@ -39,6 +39,7 @@
     <script>
         // 선택자
         const quizWrap = document.querySelector(".quiz__wrap");
+
 
         // 문제 정보
         const quizInfo = [
@@ -81,7 +82,7 @@
             }, {
                 date: "2021년 4회",
                 type: "정보처리기능사",
-                question: "억 장치 고유의 번지로서 0, 1, 2, 3, ...과 같이 16진수로 약속하여 순서대로 정해 놓은 번지는?",
+                question: "기억 장치 고유의 번지로서 0, 1, 2, 3, ...과 같이 16진수로 약속하여 순서대로 정해 놓은 번지는?",
                 choices: {
                     1: "상대번지",
                     2: "필수번지",
@@ -128,20 +129,20 @@
                 <div class="quiz__main">
                     <div class="question">${index + 1}. ${quiz.question}</div>
                     <div class="choices">
-                        <label for="choice1-${index}">
-                            <input type="radio" id="choice1-${index}" name="chocie-${index}" value="1">
+                        <label for="choice${index}-1">
+                            <input type="radio" id="choice${index}-1" name="choice-${index}" value="1">
                             <span>${quiz.choices[1]}</span>
                         </label>
-                        <label for="choice2-${index}">
-                            <input type="radio" id="choice2-${index}" name="chocie-${index}" value="2">
+                        <label for="choice${index}-2">
+                            <input type="radio" id="choice${index}-2" name="choice-${index}" value="2">
                             <span>${quiz.choices[2]}</span>
                         </label>
-                        <label for="choice3-${index}">
-                            <input type="radio" id="choice3-${index}" name="chocie-${index}" value="3">
+                        <label for="choice${index}-3">
+                            <input type="radio" id="choice${index}-3" name="choice-${index}" value="3">
                             <span>${quiz.choices[3]}</span>
                         </label>
-                        <label for="choice4-${index}">
-                            <input type="radio" id="choice4-${index}" name="chocie-${index}" value="4">
+                        <label for="choice${index}-4">
+                            <input type="radio" id="choice${index}-4" name="choice-${index}" value="4">
                             <span>${quiz.choices[4]}</span>
                         </label>
                     </div>
@@ -157,9 +158,44 @@
                 quizWrap.innerHTML = quizArray.join("");
             });
 
-            console.log(quizArray);
         }
         updateQuiz();
+
+        // 정답 확인
+        const answerQuiz = (index) => {
+            const quizChecked = quizWrap.querySelectorAll(`.quiz__main .choices input[name="choice-${index}"]:checked`);
+            const quizElement = quizWrap.querySelectorAll(".quiz")[index];
+            const answerElement = quizWrap.querySelectorAll(".answer")[index];
+            const descElement = quizWrap.querySelectorAll(".desc")[index];
+            const confirmElement = quizWrap.querySelectorAll(".confirm")[index];
+
+            if (quizChecked.length > 0) {     // 사용자가 체크한것
+                const userAnswer = quizChecked[0].value;
+                if (userAnswer === quizInfo[index].answer) {
+                    quizElement.classList.add("good");          // O 표시
+                } else {
+                    quizElement.classList.add("bad");           // X 표시
+                    answerElement.classList.remove("none");     //정답보기
+                }
+                descElement.classList.remove("none");            // 해설보기
+                confirmElement.style.display = "none";           // 정답 확인 버튼 숨기기
+            } else {
+                alert("보기를 선택해주세요!! 😎");
+            }
+        }
+
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            // 문제 출력
+            updateQuiz();
+
+            // 정답 확인
+            quizWrap.querySelectorAll(".confirm").forEach((button, index) => {
+                button.addEventListener("click", () => {
+                    answerQuiz(index);
+                })
+            })
+        })
     </script>
 </body>
 

@@ -20,8 +20,16 @@
 - 메서드(innerHTML(), classList.add, addEventListener, if문)
 
 [퀴즈03](https://hyeji1364.github.io/class2024/quiz/quiz03.html)
-/quiz/quiz03.html
+- 변수, 배열, 객체
+- 선택자(querySelector(),querySelectorAll())
+- 반복문 (for(),break문)
+- 메서드(innerHTML(), classList.add, addEventListener, if문)
 
+[퀴즈04](https://hyeji1364.github.io/class2024/quiz/quiz04.html)
+- 변수, 배열, 객체, 템플릿 리터럴
+- 선택자(querySelector(),querySelectorAll())
+- 반복문 (forEach())
+- 메서드(join(), push(), innerHTML())
 
 ### vscode 확장 프로그램
 Live server : 웹페이지 미리보기         
@@ -49,3 +57,6 @@ ES7 : 자바스크립트 및 리액트 문법 정리
 
 # cmd 중간에 나갈때
 ctrl + C
+
+## 함수
+- 실행문, 재활용이 가능

@@ -9,6 +9,21 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/default.min.css">
+    <style>
+        /* 맨 위로 올라가는 스크롤 버튼 */
+        #scrollTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 30px;
+            display: none;
+            font-size: 18px;
+            background-color: #555;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 
 <body>
@@ -965,6 +980,8 @@
     </footer>
     <!-- //footer -->
 
+    <button onclick="topFunction()" id="scrollTopBtn" title="Go to top">목록</button>
+
     <script src="assets/js/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
     <script>
@@ -1392,7 +1409,40 @@
                 })
         }
         // 24. 서버 데이터 불러오기: for in ()
-
+        //목록 클릭시 해당 본문으로 이동
+        document.addEventListener("DOMContentLoaded", function () {
+            // 메뉴 아이템 클릭 이벤트 리스너 추가
+            document.querySelectorAll('.main__menu a').forEach(item => {
+                item.addEventListener('click', function (e) {
+                    e.preventDefault(); // 기본 이벤트 동작 방지
+                    // 클릭된 메뉴 항목에 해당하는 샘플 섹션으로 이동
+                    // 메뉴 항목 텍스트에서 숫자 추출
+                    const itemText = this.innerText;
+                    const match = itemText.match(/\d+/); // 숫자만 추출
+                    if (match) {
+                        const sampleId = `sample${match[0].padStart(2, '0')}`; // ID 형식에 맞춤
+                        const sampleElement = document.getElementById(sampleId);
+                        if (sampleElement) {
+                            sampleElement.scrollIntoView({ behavior: 'smooth' }); // 스무스 스크롤
+                        }
+                    }
+                });
+            });
+        })
+        // 스크롤 감지해서 버튼 표시
+        window.onscroll = function () { scrollFunction() };
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollTopBtn").style.display = "block";
+            } else {
+                document.getElementById("scrollTopBtn").style.display = "none";
+            }
+        }
+        // 맨 위로 스크롤
+        function topFunction() {
+            document.body.scrollTop = 0; // 사파리 브라우저를 위함
+            document.documentElement.scrollTop = 0; // 크롬, 파이어폭스, IE, 오페라
+        }
     </script>
 
 </body>
