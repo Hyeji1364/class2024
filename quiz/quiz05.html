@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 05</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="index.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li class="active"><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="quiz__wrap"></div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:webstoyboy@naver.com">webstoyboy@naver.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        // 선택자 
+        const quizWrap = document.querySelector(".quiz__wrap");
+
+        // 문제 정보
+        const quizInfo = [
+            {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "피변조파로부터 원래의 신호파를 만드는 것을 무엇이라고 하는가?",
+                choices: ["발진", "정류", "증폭", "복조"],
+                answer: "4",
+                desc: "피변조파는 변조된 신호를 의미합니다. 변조된 신호를 원래의 신호로 만드는 것을 복조라고 합니다."
+            }, {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "변,복조기의 역할과 거리가 먼 것은?",
+                choices: [
+                    "통신 신호의 변환기라고 볼 수 있다.",
+                    "디지털 신호를 아날로그 신호로 변환한다.",
+                    "공중 전화 통신망에 적합한 통신 신호로 변환한다.",
+                    "컴퓨터 신호를 광 케이블에 적합한 광 신호로 변환한다."
+                ],
+                answer: "4",
+                desc: "모뎀의 역할은 디지털 데이터를 아날로그 신호로 변조하고, 아날로그 신호를 디지털 데이터로 복조하는 역할을 한다."
+            }, {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "인터넷 도메인 네임을 IP Address로 바꿔주는 시스템을 무엇이라 하는가?",
+                choices: ["HTTP", "TCP/IP", "URL", "DNS"],
+                answer: "4",
+                desc: "피변조파는 변조된 신호를 의미합니다. 변조된 신호를 원래의 신호로 만드는 것을 복조라고 합니다."
+            }, {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "기억장치에 액세스(Access)할 필요 없이 스택(Stack)을 이용하여 연산을 행하는 명령어 형식은?",
+                choices: ["1-주소 명령어", "2-주소 명령어", "3-주소 명령어", "0 - 주소 명령어"],
+                answer: "4",
+                desc: "스택은 0 주소입니다."
+            }, {
+                date: "2017년 상시",
+                type: "정보처리기능사",
+                question: "생성된 테이블을 삭제할 때 사용하는 SQL 명령문은?",
+                choices: ["CLEAR", "KILL", "DELETE", "DROP"],
+                answer: "4",
+                desc: "DELETE는 레코드(튜플) 삭제 명령어이며, DROP은 데이터베이스, 테이블, 뷰 삭제 명령어입니다."
+            }
+        ]
+
+        // 변수
+        let currentIndex = 0;   // 현재 문제에 대한 값
+
+        // 문제 출력 
+        const updateQuiz = (index) => {
+            let quizWrapTag = `
+                <div class="quiz">
+                    <div class="quiz__header">${quizInfo[index].date} ${quizInfo[index].type}</div>
+                    <div class="quiz__main">
+                        <div class="question">${index + 1}. ${quizInfo[index].question}</div>
+                        <div class="choices">
+                            <label for="choice1">
+                                <input type="radio" id="choice1" name="choice" value="1">
+                                <span>${quizInfo[index].choices[0]}</span>
+                            </label>
+                            <label for="choice2">
+                                <input type="radio" id="choice2" name="choice" value="2">
+                                <span>${quizInfo[index].choices[1]}</span>
+                            </label>
+                            <label for="choice3">
+                                <input type="radio" id="choice3" name="choice" value="3">
+                                <span>${quizInfo[index].choices[2]}</span>
+                            </label>
+                            <label for="choice4">
+                                <input type="radio" id="choice4" name="choice" value="4">
+                                <span>${quizInfo[index].choices[3]}</span>
+                            </label>
+                        </div>
+                        <div class="answer none">${quizInfo[index].answer}</div>
+                        <div class="desc none">${quizInfo[index].desc}</div>
+                    </div>
+                    <div class="quiz__footer">
+                        <button class="confirm">정답 확인하기</button>
+                        <button class="next none">다음 문제</button>
+                    </div>
+                </div>
+            `
+            quizWrap.innerHTML = quizWrapTag;
+
+            // 선택자 
+            const quizConfirm = quizWrap.querySelector(".confirm");
+            const quizNext = quizWrap.querySelector(".next");
+
+            // 정답 버튼을 클릭
+            quizConfirm.addEventListener("click", () => {
+                const quizChecked = quizWrap.querySelector("input[name='choice']:checked"); // 사용자가 클릭한 정답 확인
+
+                if (quizChecked) {
+                    const userAnswer = quizChecked.value;               // 사용자가 클릭한 정답
+                    const quizAnswer = quizInfo[currentIndex].answer    // 정답지의 정답
+                    const quizElement = quizWrap.querySelector(".quiz");
+                    const answerElement = quizWrap.querySelector(".answer");
+                    const descElement = quizWrap.querySelector(".desc");
+
+                    // 사용자 정답과 정답지 정답을 비교
+                    if (userAnswer === quizAnswer) {
+                        quizElement.classList.add("good");
+                    } else {
+                        quizElement.classList.add("bad");
+                        answerElement.classList.remove("none")
+                    }
+                    descElement.classList.remove("none");   // 설명 추가
+                    quizConfirm.classList.add("none");  // 정답 버튼 삭제
+                    quizNext.classList.remove("none");  // 다음 버튼 추가
+                } else {
+                    alert("보기를 선택해주세요! 🥳");
+                }
+            });
+
+            // 다음 문제 버튼을 클릭
+            quizNext.addEventListener("click", () => {
+                if (currentIndex < quizInfo.length - 1) {
+                    currentIndex++;             // 문제 번호 증가
+                    updateQuiz(currentIndex);   // 퀴즈 반영
+                } else {
+                    alert("퀴즈가 종료되었습니다. 🥳");
+                }
+            });
+        }
+
+        // 페이지가 로드된 후 실행
+        document.addEventListener("DOMContentLoaded", () => {
+            updateQuiz(currentIndex);
+        });
+
+    </script>
+</body>
+
+</html>

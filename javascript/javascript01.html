@@ -10,19 +10,6 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/default.min.css">
     <style>
-        /* 맨 위로 올라가는 스크롤 버튼 */
-        #scrollTopBtn {
-            position: fixed;
-            bottom: 20px;
-            right: 30px;
-            display: none;
-            font-size: 18px;
-            background-color: #555;
-            color: white;
-            cursor: pointer;
-            padding: 10px;
-            border-radius: 5px;
-        }
     </style>
 </head>
 
@@ -37,6 +24,15 @@
                 <li><a href="javascript02.html">데이터 불러오기</a></li>
                 <li><a href="javascript03.html">데이터 실행하기</a></li>
                 <li><a href="javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="object01.html">문자열 객체</a></li>
+                <li><a href="object02.html">배열 객체</a></li>
+                <li><a href="object03.html">수학 객체</a></li>
+                <li><a href="object04.html">숫자 객체</a></li>
+                <li><a href="object05.html">브라우저 객체</a></li>
+                <li><a href="object06.html">요소 객체</a></li>
+                <li><a href="object07.html">이벤트 객체</a></li>
             </ul>
         </nav>
     </header>
@@ -436,7 +432,7 @@
     const arr1 = [100, 200];
     const arr2 = [300, 400];
     const merge1 = [...arr1, ...arr2];
-    const merge2 = [...arr1, "javscript", ...arr2, "jquery"];
+    const merge2 = [...arr1, "javascript", ...arr2, "jquery"];
 
     console.log(arr1);                  // [100, 200]
     console.log(...arr1);               // 100 200
