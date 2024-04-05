@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #wrap {
+            width: 100%;
+
+        }
+
+        #main {
+            width: 100%;
+            height: calc(100vh - 120px);
+            display: flex;
+        }
+
+        #header {
+            width: 200px;
+            height: 100%;
+            background-color: #afc3cc;
+
+        }
+
+        #header .logo {
+            height: 10%;
+            background-color: #94c5d4;
+        }
+
+        #header .menu {
+            height: 90%;
+            background-color: #97c3f6;
+        }
+
+        #contents {
+            width: 400px;
+            height: 100%;
+            background-color: #7abfe0;
+        }
+
+        #contents .notice {
+            height: 40%;
+            background-color: #6bace9;
+        }
+
+        #contents .gallery {
+            height: 40%;
+            background-color: #678f92;
+        }
+
+        #contents .link {
+            height: 20%;
+            background-color: #53a0df;
+        }
+
+        #slider {
+            width: calc(100% - 600px);
+            height: 100%;
+            background-color: #3b97bf;
+        }
+
+        #footer {
+            width: 100%;
+            height: 100px;
+            background-color: #3c60b2;
+            display: flex;
+        }
+
+        #footer .footer1 {
+            width: 10%;
+            height: 100px;
+            background-color: #3463a4;
+        }
+
+        #footer .footer2 {
+            width: 60%;
+            height: 100px;
+            background-color: #487de0;
+        }
+
+        #footer .footer3 {
+            width: 30%;
+            height: 100px;
+            background-color: #5f98b0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <main id="main">
+            <header id="header">
+                <h1 class="logo"></h1>
+                <nav class="menu"></nav>
+            </header>
+            <!-- //header -->
+
+            <section id="contents">
+                <article class="notice"></article>
+                <article class="gallery"></article>
+                <article class="link"></article>
+
+            </section>
+            <!-- // contents-->
+
+            <article id="slider">
+
+            </article>
+            <!-- // slider-->
+        </main>
+        <!-- // main-->
+        <footer id="footer">
+            <div class="footer1"></div>
+            <div class="footer2"></div>
+            <div class="footer3"></div>
+
+        </footer>
+        <!-- // footer-->
+    </div>
+</body>
+
+</html>

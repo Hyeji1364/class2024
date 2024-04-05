@@ -187,10 +187,16 @@
                     for()문은 반복문으로, 특정 조건이 만족될 때까지 반복해서 실행됩니다.
                 </p>
                 <pre><code>{
-        const arr = [100, 200, "javascript"];
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-        console.log("04.배열 : 데이터 불러오기: 갯수");
-        console.log(arr.length);    // 3
+        for (let i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+        }
+
+        // 홀수만 나오게 하기
+        for (let i = 0; i < arr.length; i += 2) {
+            console.log(arr[i])
+        }
 }</code></pre>
                 <div class="result">
                     <details>
