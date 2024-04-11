@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Quest</title>
+    <title>Quiz Test</title>
     <link rel="stylesheet" href="../quiz/assets/css/quizW.css">
 </head>
 
@@ -43,7 +43,7 @@
                 .then(res => res.json())
                 .then(items => {
                     quizInfo = items.map(item => ({
-                        Date: " 정보처리기능사 2020년 ",
+                        Date: " 정보처리기능사 ",
                         Type: item.time,
                         Question: item.question,
                         question_desc: item.question_desc,
@@ -103,7 +103,7 @@
                 }
                 updateQuiz();
             } else {
-                alert("모든 퀴즈를 완료했습니다!");
+                alert("모든 퀴즈를 풀었습니다.");
                 // 여기에 퀴즈 종료 후 처리 로직 추가
             }
             document.getElementById('correctCount').textContent = "정답 수: " + correctAnswersCount;
