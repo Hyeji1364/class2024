@@ -221,7 +221,7 @@
                 <h3>06.배열 : 데이터 불러오기: forEach()문</h3>
                 <p>
                     배열의 forEach문은 배열의 각 요소에 대해 함수를 호출하는 메서드입니다.<br>
-                    함수를 호출할 때마다 배열의 다으 요소로 이동하며, 모든 요소를 처리할 때까지 반복합니다.
+                    함수를 호출할 때마다 배열의 다음 요소로 이동하며, 모든 요소를 처리할 때까지 반복합니다.
                 </p>
                 <pre><code>{
         const arr = [100, 200, 300, 400, 500, 600, 700, 800, 900];
@@ -414,34 +414,34 @@
                     filter() 함수는 배열의 요소를 순회하면서 콜백 함수를 사용하여 원하는 조건에 따라 필터링하는 함수입니다.
                 </p>
                 <pre><code>{
-        const num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        const num = [100, 200, 300, 400, 500, 600, 700, 800, 900];
 
         console.log("10++++++");
         num.filter(function (element) {
             console.log(element);
-        });                                 // 
+        });
 
         num.filter(function (element, index) {
-            console.log(element);
+            console.log(index);
         });
 
         num.filter(function (element, index, array) {
-            console.log(element);
+            console.log(array);
         });
 
         const arr = num.filter(function (element) {
-            return element > 5;
+            return element > 500;
         });
 
         const arr1 = num.filter((element) => {
-            return element > 5;
+            return element > 500;
         });
 
         const arr2 = num.filter(element => {
-            return element > 5;
+            return element > 500;
         });
 
-        const arr3 = num.filter(e => e > 5);    //return 생략
+        const arr3 = num.filter(e => e > 500);    //return 생략
 
         console.log(arr)
 }</code></pre>
@@ -449,6 +449,16 @@
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
+                            100<br>
+                            200<br>
+                            300<br>
+                            400<br>
+                            500<br>
+                            600<br>
+                            700<br>
+                            800<br>
+                            900<br>
+                            0<br>
                             1<br>
                             2<br>
                             3<br>
@@ -457,17 +467,11 @@
                             6<br>
                             7<br>
                             8<br>
-                            9<br>
-                            6<br>
-                            7<br>
-                            8<br>
-                            9<br>
-                            6<br>
-                            7<br>
-                            8<br>
-                            9<br>
-                            <br>
-                            [6, 7, 8, 9]<br>
+                            [100, 200, 300, 400, 500, 600, 700, 800, 900]<br>
+                            [600, 700, 800, 900]<br>
+                            [600, 700, 800, 900]<br>
+                            [600, 700, 800, 900]<br>
+                            [600, 700, 800, 900]<br>
                         </div>
                     </details>
                 </div>
@@ -488,6 +492,52 @@
         console.log(a);     //100
         console.log(b);     //200
         console.log(c);     //javascript
+
+        // 선언에서 분리한 할당
+        const [a, b, c] = [100, 200, "javascript"]
+
+        console.log(a);     //100
+        console.log(b);     //200
+        console.log(c);     //javascript
+
+       // 기본값 설정
+        const [a, b, c = "javascript"] = [100, 200];
+
+        console.log("기본값 설정")
+        console.log(a);     //100
+        console.log(b);     //200
+        console.log(c);     //javascript
+
+        // 배열 일부 요소 무시
+        const [a, , c] = [100, 200, "javascript"];
+
+        console.log(a);     //100
+        console.log(c);     //javascript
+
+
+        // 나머지 값 할당
+        const [a, b, ...rest] = [100, 200, "javascript", "jquery"];
+
+        console.log(a);     // 100
+        console.log(b);     // 200
+        console.log(...rest);        // javscript jquery
+       // 변수 값 교환
+        let a = 100, b = 200;
+        [a, b] = [b, a];
+
+        console.log("변수값 교환")
+        console.log(a);     // 200
+        console.log(b);     // 100
+
+        // 다차원 배열 펼침 연산자
+        const [a, [b, c]] = [1, [2, "javascript"]];
+
+        console.log("다차원 배열 펼침연산자");
+        console.log(a);     // 1
+        console.log(b);     // 2
+        console.log(c);     // javascript
+
+        
 }</code></pre>
                 <div class="result">
                     <details>
@@ -510,26 +560,42 @@
                     이를 통해 배열의 각 요소를 쉽게 접근하고 처리할 수 있습니다.
                 </p>
                 <pre><code>{
-            // 배열 복사
-            const arr = [100, 200, "javascript"];
+        const arr = [100, 200, "javascript"];
         const copy = [...arr];
 
         console.log("배열 복사")
-        console.log(arr)       // [100, 200, "javascript"];
-        console.log(...arr)     // 100 200 "javascript"
-        console.log(copy)       // [100, 200, "javascript"];
+        console.log(arr);       // [100, 200, "javascript"];
+        console.log(...arr);     // 100 200 "javascript"
+        console.log(copy);       // [100, 200, "javascript"];
     }
     {
         // 배열 합치기
         const arr1 = [100, 200];
         const arr2 = [300, 400];
-        const merged1 = [...arr1, ...arr2];
-        const merged2 = [...arr1, "javascript", ...arr2, "jquery"];
+        const merged1 = [...arr1, ...arr2];     // [100, 200, 300, 400]
+        const merged2 = [...arr1, "javascript", ...arr2, "jquery"];     // [100, 200, "javascript", 300, 400, "jquery"]
 
         console.log("배열 합치기")
         console.log(arr1.concat(arr2));         // [100, 200, 300, 400]
         console.log(merged1);       // [100, 200, 300, 400]
-        console.log(merged2);       // [100, 200, javascript, 300, 400, jquery]
+        console.log(merged2);       // [100, 200, "javascript", 300, 400, "jquery"]
+
+        // 함수 인자로 사용하기
+            function numbers(a, b, c) {
+                return a + b + c;
+            }
+
+            console.log("함수 인자로 사용하기");
+            const nums = [100, 200, 300];
+            console.log(numbers(...nums));
+
+            
+        // 문자열 배열로 변환하기
+        const text1 = "javascript";
+        const text2 = [...text1];
+
+        console.log(text1);         // javascript
+        console.log(text2);         // ['j', 'a', 'v', 'a', 's', 'c', 'r', 'i', 'p', 't'] 
 }</code></pre>
                 <div class="result">
                     <details>
@@ -557,7 +623,6 @@
                     객체 생성 및 접근 : 객체를 생성한 후, 점 표기법이나 대괄호 표기법을 사용하여 객체의 속성에 접근할 수 있습니다.
                 </p>
                 <pre><code>{
-    {
         const obj = {
             a: 100,
             b: 200,
@@ -570,7 +635,6 @@
         console.log(obj["a"]);
         console.log(obj["b"]);
         console.log(obj["c"]);
-    }
 }</code></pre>
                 <div class="result">
                     <details>
@@ -1194,9 +1258,9 @@
             const merged2 = [...arr1, "javascript", ...arr2, "jquery"];
 
             console.log("배열 합치기")
-            console.log(arr1.concat(arr2));         // [100, 200, 300, 400]
-            console.log(merged1);       // [100, 200, 300, 400]
-            console.log(merged2);       // [100, 200, javascript, 300, 400, jquery]
+            console.log(arr1.concat(arr2));  // [100, 200, 300, 400]
+            console.log(merged1);           // [100, 200, 300, 400]
+            console.log(merged2);           // [100, 200, javascript, 300, 400, jquery]
         }
         {
             // 함수 인자로 사용하기
