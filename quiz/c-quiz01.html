@@ -4,136 +4,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
-    <link rel="stylesheet" href="../quiz/assets/css/quizQ.css">
+    <title>퀴즈 test</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
 </head>
 
 <body>
-    <div id="wrap">
-        <div class="quiz">
-            <div class="quiz_header">
-                <span id="currentQuestionNumber">1</span> / <span id="totalQuestions"></span>
-            </div> <!-- 문제 종목 및 현재문항/남은문항 표시구역-->
-            <div class="quiz_main">
-                <div class="quiz_quizbox"> <!-- 퀴즈정보(문제,번호 등)-->
-                    <div class="question"></div> <!-- 문제가 표출될 곳-->
-                    <div id="input">
-                        <input type="text" placeholder="정답 입력란">
-                    </div> <!-- 답 적는곳 (주관식)-->
+    <header id="header">
+        <h1>
+            <a href="lndex.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li class="active"><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <div class="quiz__header">
+                    <span class="date"></span>
+                    <span class="type"></span>
                 </div>
-            </div>
-            <div class="quiz_gauge"></div> <!-- 문제 게이지 -->
-            <div class="quiz_footer">
-                <button class="previous">이전문제</button> <!-- 이전 문항 버튼 -->
-                <button class="confirm">정답 확인하기 </button> <!-- 정답 제출 버튼 -->
-                <button class="next">다음문제</button> <!-- 다음 문항 버튼-->
-            </div>
-            <div class="quiz_results">
-                <div id="correctCount">정답 수: 0</div>
-                <div id="incorrectCount">오답 수: 0</div>
-                <div id="totalScore">총 점수: 0</div>
+                <div class="quiz__main">
+                    <div class="question">
+                        <em></em>.
+                        <span></span>
+                    </div>
+                    <div class="input">
+                        <input type="text" placeholder="정답을 입력해주세요!">
+                    </div>
+                    <div class="answer none"></div>
+                    <div class="desc none"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
             </div>
         </div>
-    </div>
-    <script>
-        let quizInfo = [];
-        let currentQuestionIndex = 0; // 현재 질문의 인덱스
-        let correctAnswersCount = 0; // 정답 수
-        let incorrectAnswersCount = 0; // 오답 수
-        const fetchQuiz = () => {
-            fetch('https://webstoryboy.github.io/webstoryboy/w_json/gineungsaShort.json')
-                .then(res => res.json())
-                .then(items => {
-                    quizInfo = items.map(item => ({
-                        Date: "2020년 정보처리기능사",
-                        Type: item.time,
-                        Question: item.question,
-                        question_desc: item.question_desc,
-                        answer: item.correct_answer
-                    }));
-                    updateQuiz(); // 데이터 로딩 후 첫 번째 퀴즈 업데이트
-                })
-                .catch(error => console.error('데이터 로딩 실패', error));
-        };
-        const updateQuiz = () => {
-            const quiz = quizInfo[currentQuestionIndex];
-            const quizBox = document.querySelector('.quiz_quizbox');
-            const currentQuestionNumberElement = document.getElementById('currentQuestionNumber');
-            const totalQuestionsElement = document.getElementById('totalQuestions');
-            currentQuestionNumberElement.textContent = currentQuestionIndex + 1;
-            totalQuestionsElement.textContent = quizInfo.length;
-            const updateQuiz = () => {
-                // 기존 코드 유지
-                document.getElementById('userAnswer').value = ''; // 입력 필드 초기화
-                // 나머지 updateQuiz 코드
-            };
-            quizBox.innerHTML = `
-                <div class="quiz">
-                    <div class="quiz__header">${quiz.Date} ${quiz.Type}</div>
-                    <div class="quiz__main">
-                        <div class="question">${currentQuestionIndex + 1}. ${quiz.Question}</div>
-                        <div class="desc none">${quiz.question_desc}</div>
-                        <input type="text" id="userAnswer" placeholder="답을 적어주세요.">
-                    </div>
-                </div>
-            `;
-        };
-        // "정답 확인" 버튼 이벤트 리스너
-        const checkAnswer = () => {
-            const userAnswer = document.querySelector('#userAnswer').value;
-            const quiz = quizInfo[currentQuestionIndex];
-            const quizElement = document.querySelector('.quiz');
-            if (userAnswer.toLowerCase() === quiz.answer.toLowerCase()) {
-                alert("정답입니다!☺");
-            } else {
-                alert(`틀렸습니다. 정답은 ${quiz.answer}입니다.`);
-            }
-            if (userAnswer.toLowerCase() === quiz.answer.toLowerCase()) {
-                correctAnswersCount += 1; // 정답 카운트 증가
-                quizElement.classList.add("good"); // 정답일 때 'good' 클래스 추가
-                quizElement.classList.remove("bad"); // 'bad' 클래스가 있다면 제거
-            } else {
-                incorrectAnswersCount += 1; // 오답 카운트 증가
-                quizElement.classList.add("bad"); // 오답일 때 'bad' 클래스 추가
-                quizElement.classList.remove("good"); // 'good' 클래스가 있다면 제거
-            };
+    </main>
+    <!-- //main -->
 
-            if (currentQuestionIndex < quizInfo.length - 1) {
-                currentQuestionIndex++;
-                updateQuiz();
-            } else { alert("모든 퀴즈를 풀었습니다.") }
-            document.getElementById('correctCount').textContent = "정답 수: " + correctAnswersCount;
-            document.getElementById('incorrectCount').textContent = "오답 수: " + incorrectAnswersCount;
-            document.getElementById('totalScore').textContent = "총 점수: " + correctAnswersCount; // 각 정답당 1점
-        };
-        // "이전 문항" 버튼 이벤트 리스너
-        const previousQuestion = () => {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-                updateQuiz();
+    <footer id="footer">
+        <a href="mailto:hyeji1364@gmail.com">hyeji1364@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        // 문제 정보
+        const infoDate = "2021년 1회";
+        const infoType = "정보처리기능사";
+        const infoNum = "01";
+        const infoQuestion = "CPU의 정보처리 속도 단위 중 초당 100만 개의 연산을 수행한다는 의미의 단위는?";
+        const infoAnswer = "MIPS";
+        const infoDesc = "LIPS는 초당 1개, KIPS는 초당 1000개, MIPS는 초당 1000000의 연산을 수행하는 것을 의미합니다.";
+
+        // 문제 출력
+        document.querySelector(".quiz__header .date").innerText = infoDate;
+        document.querySelector(".quiz__header .type").innerText = infoType;
+        document.querySelector(".quiz__main .question em").innerText = infoNum;
+        document.querySelector(".quiz__main .question span").innerText = infoQuestion;
+        document.querySelector(".quiz__main .answer").innerText = infoAnswer;
+        document.querySelector(".quiz__main .desc").innerText = infoDesc;
+
+        // 정답 확인하기
+        document.querySelector(".quiz__footer .confirm").addEventListener("click", function () {
+            const userAnswer = document.querySelector(".quiz__main input").value;   // 사용자가 쓴 정답
+
+            // 사용자 정답과 실제 정답을 확인
+            if (infoAnswer == userAnswer) {
+                alert("정답입니다.");
             } else {
-                // 이미 첫 번째 문제에 있을 경우 더 이상 이전으로 갈 수 없음
-                alert("돌아갈 문제가 없습니다.");
+                alert("오답입니다.");
             }
-        };
-        // "다음 문항" 버튼 이벤트 리스너
-        const nextQuestion = () => {
-            if (currentQuestionIndex < quizInfo.length - 1) {
-                currentQuestionIndex++;
-                const quizElement = document.querySelector('.quiz');
-                if (quizElement) {
-                    quizElement.classList.remove("good", "bad"); // 클래스 제거
-                }
-                updateQuiz();
-            } else {
-                alert("모든 퀴즈를 풀었습니다.");
-                // 여기에 퀴즈 종료 후 처리 로직 추가
-            }///
-        };
-        document.querySelector('.confirm').addEventListener('click', checkAnswer);
-        document.querySelector('.previous').addEventListener('click', previousQuestion);
-        document.querySelector('.next').addEventListener('click', nextQuestion);
-        document.addEventListener('DOMContentLoaded', fetchQuiz);
+
+            // 정답과 설명을 보여주기
+            document.querySelector(".quiz__main .answer").classList.remove("none");
+            document.querySelector(".quiz__main .desc").classList.remove("none");
+        });
+
     </script>
 </body>
 
