@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F-3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #000;
+        }
+
+        #wrap {
+            width: 100%;
+        }
+
+        #header {
+            width: 100%;
+            height: 100px;
+            position: relative;
+        }
+
+        #header::after {
+            content: '';
+            width: 100%;
+            height: 10px;
+            position: absolute;
+            left: 0;
+            top: 100px;
+            background-color: #866363;
+            transition: all 400ms;
+        }
+
+        #header.on::after {
+            height: 158px;
+        }
+
+        #header .container {
+            display: flex;
+        }
+
+        #header .container h1 {
+            width: 20%;
+            height: 100px;
+            background-color: #bbb;
+        }
+
+        #header .container nav {
+            width: 80%;
+            height: 100px;
+            background-color: #aaa;
+            position: relative;
+            z-index: 100;
+        }
+
+        #header nav>ul {
+            display: flex;
+            justify-content: right;
+            margin-top: 60px;
+        }
+
+        #header nav>ul>li>a {
+            padding: 10px 60px;
+            background-color: #eee;
+            display: inline-block;
+        }
+
+        #header nav>ul>li>a:hover {
+            background-color: #C0BDBD;
+        }
+
+        #header nav>ul>li>ul {
+            display: none;
+        }
+
+        #header nav>ul>li>ul>li {
+            text-align: center;
+        }
+
+        #header nav>ul>li>ul>li>a {
+            padding: 10px;
+            display: inline-block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #header nav>ul>li>ul>li>a:hover {
+            background-color: #aaa;
+        }
+
+        #slider {
+            width: 100%;
+            height: 350px;
+            position: relative;
+            background-color: #ccc;
+        }
+
+        #slider .link {
+            width: 1340px;
+            height: 100px;
+            background-color: #ddd;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+
+        #contents {
+            width: 100%;
+            height: 400px;
+        }
+
+        #contents .banner {}
+
+        #contents .notice {}
+
+        #footer {
+            width: 100%;
+            height: 120px;
+        }
+
+        #footer .footer1 {}
+
+        #footer .footer2 {}
+
+        #footer .footer2 .footer2-1 {}
+
+        #footer .footer2 .footer2-2 {}
+
+        .container {
+            width: 1340px;
+            height: inherit;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="container">
+                <h1></h1>
+                <nav>
+                    <ul>
+                        <li><a href="#">조회</a>
+                            <ul>
+                                <li><a href="#">계좌조회</a></li>
+                                <li><a href="#">거래내역조회</a></li>
+                                <li><a href="#">휴먼계좌 조회</a></li>
+                                <li><a href="#">수표/어음 조회</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">이체</a>
+                            <ul>
+                                <li><a href="#">계좌이체</a></li>
+                                <li><a href="#">다계좌이체</a></li>
+                                <li><a href="#">자동이체</a></li>
+                                <li><a href="#">예약이체</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">공과금</a>
+                            <ul>
+                                <li><a href="#">지로/생활요금</a></li>
+                                <li><a href="#">지방세</a></li>
+                                <li><a href="#">국세/관세</a></li>
+                                <li><a href="#">범칙금/벌과금</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">외환</a>
+                            <ul>
+                                <li><a href="#">금리</a></li>
+                                <li><a href="#">환율/외화예금</a></li>
+                                <li><a href="#">글로벌뱅킹</a></li>
+                                <li><a href="#">외화송금</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <!-- //header-->
+        <article id="slider">
+            <div class="link"></div>
+        </article>
+        <!--//slider-->
+        <main id="contents">
+            <div class="container">
+                <section class="banner"></section>
+                <section class="notice"></section>
+            </div>
+        </main>
+        <!--contents-->
+        <footer id="footer">
+            <div class="container">
+                <div class="footer1"></div>
+                <div class="footer2">
+                    <div class="footer2-1"></div>
+                    <div class="footer2-2"></div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("nav > ul > li").mouseover(function () {
+                $("nav > ul > li > ul").stop().fadeIn();
+                $("#header").addClass("on")
+            });
+            $("nav > ul > li").mouseout(function () {
+                $("nav > ul > li > ul").stop().fadeOut();
+                $("#header").removeClass("on");
+            });
+        });
+    </script>
+</body>
+
+</html>
