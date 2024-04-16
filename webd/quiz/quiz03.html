@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퀴즈 03</title>
+    <link rel="stylesheet" href="assets/css/quiz.css">
+</head>
+
+<body>
+    <header id="header">
+        <h1>
+            <a href="lndex.html">Quiz</a>
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="quiz01.html">1</a></li>
+                <li><a href="quiz02.html">2</a></li>
+                <li class="active"><a href="quiz03.html">3</a></li>
+                <li><a href="quiz04.html">4</a></li>
+                <li><a href="quiz05.html">5</a></li>
+                <li><a href="quiz06.html">6</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!-- //header -->
+
+    <main id="main">
+        <div class="quiz__wrap">
+            <div class="quiz">
+                <div class="quiz__header">
+                </div>
+                <div class="quiz__main">
+                    <div class="question">
+                    </div>
+                    <div class="choices">
+                        <label for="choice1">
+                            <input type="radio" id="choice1" name="chocie" value="1">
+                            <span></span>
+                        </label>
+
+                        <label for="choice2">
+                            <input type="radio" id="choice2" name="chocie" value="2">
+                            <span></span>
+                        </label>
+
+                        <label for="choice3">
+                            <input type="radio" id="choice3" name="chocie" value="3">
+                            <span></span>
+                        </label>
+
+                        <label for="choice4">
+                            <input type="radio" id="choice4" name="chocie" value="4">
+                            <span></span>
+                        </label>
+
+                    </div>
+                    <div class="answer none"></div>
+                    <div class="desc none"></div>
+                </div>
+                <div class="quiz__footer">
+                    <button class="confirm">정답 확인하기</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- //main -->
+
+    <footer id="footer">
+        <a href="mailto:hyeji1364@gmail.com">hyeji1364@gmail.com</a>
+    </footer>
+    <!-- //footer -->
+
+    <script>
+        // 선택자
+        const quizWrap = document.querySelector(".quiz__wrap");
+        const quizHeader = quizWrap.querySelector(".quiz__header");
+        const quizType = quizWrap.querySelector(".quiz__header .type");
+        const quizQuestion = quizWrap.querySelector(".quiz__main .question");
+        const quizAnswer = quizWrap.querySelector(".quiz__main .answer");
+        const quizDesc = quizWrap.querySelector(".quiz__main .desc");
+        const quizConfirm = quizWrap.querySelector(".quiz__footer .confirm");
+        const quizChoices = quizWrap.querySelectorAll(".quiz__main .choices span");
+        const quizSelects = quizWrap.querySelectorAll(".quiz__main .choices input");
+
+        // 문제 정보
+        const quizInfo = {
+            date: "2021년 1회",
+            type: "정보처리기능사",
+            num: "01",
+            question: "명령어 형식(instruction format)에서 첫 번째 바이트에 기억되는 것은?",
+            answer: "4",
+            choices: ["operand", "length", "question mark", "opcode"],
+            desc: "채널은 중앙처리장치와 입출력장치 사이에 존재하며 서로의 속도 차이를 보완 합니다."
+        }
+
+        // 문제 출력
+        quizHeader.innerHTML = quizInfo.date + " " + quizInfo.type;
+        quizQuestion.innerHTML = quizInfo.num + ". " + quizInfo.question;
+        quizAnswer.innerHTML = quizInfo.answer;
+        quizDesc.innerHTML = quizInfo.desc;
+
+        // quizChoices[0].innerHTML = quizInfo.choices[0]
+        // quizChoices[1].innerHTML = quizInfo.choices[1]
+        // quizChoices[2].innerHTML = quizInfo.choices[2]
+        // quizChoices[3].innerHTML = quizInfo.choices[3]
+
+        for (let i = 0; i < quizChoices.length; i++) {
+            quizChoices[i].innerHTML = quizInfo.choices[i];
+        }
+
+        // 정답확인
+        quizConfirm.addEventListener("click", () => {
+            let selectedChoice = null;
+
+            // 보기 선택
+            for (let i = 0; i < quizSelects.length; i++) {
+                if (quizSelects[i].checked) {
+                    selectedChoice = quizSelects[i].value;
+                    break;
+                }
+            }
+
+            // 정답 확인
+            if (selectedChoice !== null) {
+                if (selectedChoice == quizInfo.answer) {
+                    alert("정답입니다.");
+                    quizDesc.classList.remove("none");
+                } else {
+                    alert("오답입니다.");
+                    quizAnswer.classList.remove("none");
+                    quizDesc.classList.remove("none");
+                }
+            } else {
+                alert("보기를 선택해주세요!! 😉");
+            }
+        });
+
+    </script>
+</body>
+
+</html>

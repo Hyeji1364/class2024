@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 01. 선언적 함수
+        {
+            function test() {
+                console.log("01. 함수 실행")
+            }
+            test();
+        }
+
+        // 02. 익명 함수
+        {
+            const test = function () {
+                console.log("02. 함수 실행")
+            }
+            test();
+        }
+
+        // 03. 매개변수 함수
+        {
+            function test(string) {
+                console.log(string)
+            }
+            test("03. 함수 실행");
+        }
+
+        // 04. 리턴값 함수
+        {
+            function test() {
+                return "04. 함수 실행";
+            }
+            console.log(test());
+        }
+
+        // 05. 매개변수 + 리턴값 함수
+        {
+            function test(string) {
+                return string;
+            }
+            console.log(test("05. 함수 실행"));
+        }
+
+        // 06. (화살표 함수) 선언적 함수
+        {
+            test = () => {
+                console.log("06. 함수 실행")
+            }
+            test();
+        }
+
+        // 07.(화살표 함수) 익명 함수
+        {
+            test = () => {
+                console.log("07. 함수 실행")
+            }
+            test();
+        }
+
+        // 08.(화살표 함수) 매개변수 함수
+        {
+            test = (string) => {
+                console.log(string)
+            }
+            test("08. 함수 실행");
+        }
+
+        // 09. (화살표 함수) 리턴값 함수
+        {
+            test = (string) => {
+                return string;
+            }
+            console.log(test("09. 함수 실행"));
+        }
+
+        // 10.(화살표 함수)매개변수 + 리턴값 함수
+        {
+            test = (string) => {
+                return string;
+            }
+            console.log(test("10. 함수 실행"));
+        }
+
+        // 11. for문
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            console.log("11.for문")
+            for (let i = 0; i < arr.length; i++) {
+                console.log(arr[i]);
+            }
+        }
+
+        // 12. forEach문
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            console.log("12.forEach문")
+            arr.forEach(function (ele) {
+                console.log(ele)
+            })
+        }
+
+        // 13. for of
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            console.log("13.for of")
+            for (let ele of arr) {
+                console.log(ele)
+            }
+        }
+
+        // 14. for in
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            console.log("13.for in")
+            for (let ele in arr) {
+                console.log(arr[ele])
+            }
+        }
+        // 15. map()
+        {
+            const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+            console.log("13.map()")
+            arr.map(function (ele) {
+                console.log(ele)
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>
