@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        #slider {
+            width: 1200px;
+            height: 300px;
+            margin: 0 auto;
+            background-color: #ccc;
+            overflow: hidden;
+        }
+
+        .slider-wrap {
+            display: flex;
+            width: 6000px;
+        }
+
+        .slider-wrap .slider {
+            width: 1200px;
+            height: 300px;
+            text-align: center;
+            line-height: 300px;
+            font-size: 24px;
+            background-color: red;
+        }
+
+        .slider-wrap .slider.s2 {
+            background-color: aquamarine;
+        }
+
+        .slider-wrap .slider.s3 {
+            background-color: blueviolet
+        }
+
+        .slider-wrap .slider.s4 {
+            background-color: bisque
+        }
+    </style>
+</head>
+
+<body>
+    <div id="slider">
+        <div class="slider-wrap">
+            <div class="slider s1">slider1</div>
+            <div class="slider s2">slider2</div>
+            <div class="slider s3">slider3</div>
+            <div class="slider s4">slider4</div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        let currentIndex = 0;
+        $(".slider-wrap").append($(".slider").first().clone(true));
+
+        setInterval(() => {
+            currentIndex++;
+            $(".slider-wrap").animate({ marginLeft: -1200 * currentIndex + "px" }, 400)
+
+            if (currentIndex == 4) {
+                setTimeout(() => {
+                    $(".slider-wrap").animate({ marginLeft: 0 }, 0);
+                    currentIndex = 0;
+                }, 1000)
+            }
+        }, 2000);
+    </script>
+</body>
+
+</html>
