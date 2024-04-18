@@ -525,21 +525,21 @@
             const quizNext = document.querySelector(".next");
 
             quizConrim.addEventListener("click", () => {
-
                 const quizInput = document.querySelector("input[type='text']")
 
                 if (quizInput) {
                     const userAnswer = quizInput.value;
                     const quizAnswer = quizInfo[currentIndex].answer;
                     const answerElement = document.querySelector(".answer");
+
                     if (userAnswer === quizAnswer) {
+                        quizPlay.classList.add("good");
                         correctCount++;
                         totalScore++;
-                        alert("정답입니다.");
                     } else {
+                        quizPlay.classList.add("bad");
                         answerElement.classList.remove("none");
                         incorrectCount++;
-                        alert("오답입니다.");
                     }
                     quizConrim.classList.add("none");
                     quizNext.classList.remove("none");
