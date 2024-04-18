@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Abel&family=Aldrich&family=Gugi&family=Kdam+Thmor+Pro&family=Madimi+One&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&family=Sarpanch:wght@400;500;600;700;800;900&family=Teko:wght@300..700&family=Turret+Road:wght@200;300;400;500;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <style>
+        body {
+            cursor: none;
+        }
+
+        .main__inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main__inner p {
+            color: #d2d2d2;
+            padding: 10vw;
+            font-size: 2vmax;
+            text-align: center;
+        }
+
+        .main__inner p span {
+            font-style: normal;
+            font-weight: 800;
+        }
+
+        .main__info {
+            position: absolute;
+            left: 16px;
+            top: 68px;
+            font-size: 14px;
+            width: 100%;
+        }
+
+        .main__info ul {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .main__info ul li {
+            width: 25%;
+            text-transform: uppercase;
+            font-family: 'Montserrat';
+            color: #dbdbdb;
+            font-weight: 800;
+        }
+
+        .cursor {
+            width: 100px;
+            height: 100px;
+            background-color: #dfebc143;
+            border: 1px solid #e7e56d20;
+            backdrop-filter: blur(5px);
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            border-radius: 50%;
+            z-index: 10000;
+            user-select: none;
+            pointer-events: none;
+            transition:
+                transform 0.5,
+                background-color 0.3s,
+                border 0.3s,
+                border-radius 0.3s
+        }
+
+        .cursor::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor::after {
+            content: '';
+            width: 1px;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.span1 {
+            background-color: #d8e1c6;
+            border: 1px solid #b9f6ea;
+        }
+
+        .cursor.span1::before {
+            background-color: #b9f6ea;
+        }
+
+        .cursor.span1::after {
+            background-color: #b9f6ea;
+        }
+
+        .cursor.span2 {
+            background-color: #62ffc843;
+            border: 1px solid #62ffc820;
+            transform: scale(0.5);
+        }
+
+        .cursor.span2::before {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span2::after {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span3 {
+            background-color: #ff628443;
+            border: 1px solid #ff628420;
+            border-radius: 1%;
+            transform: rotate(720deg) scale(2);
+        }
+
+        .cursor.span3::before {
+            background-color: #ff6284;
+        }
+
+        .cursor.span3::after {
+            background-color: #ff6284;
+        }
+
+        .cursor.span4 {
+            width: 80px;
+            height: 80px;
+            background-color: #ff628443;
+            border: 1px solid #ff628420;
+            position: relative;
+            transform-origin: center;
+            animation: heartbeat 1s infinite;
+        }
+
+        .cursor.span4::before,
+        .cursor.span4::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: #ff6284;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .cursor.span4::before {
+            left: 0;
+            transform: rotate(-45deg);
+        }
+
+        .cursor.span4::after {
+            right: 0;
+            transform: rotate(45deg);
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+            <div class="header__inner">
+                <h1>Mouse Effect <em>01</em></h1>
+            </div>
+        </header>
+        <!-- //header -->
+
+        <main id="main">
+            <div class="cursor"></div>
+            <div class=" main__inner">
+                <p>
+                    JavaScript: A Versatile Language for Dynamic<span> Web Development</span>
+                    JavaScript is a powerful, <span> dynamic programming language</span> that has become an essential
+                    tool for web <span>development</span>
+                    Developed in 1994 by Netscape, <span>JavaScript</span> was initially known as Mocha before being
+                    renamed to its current name.
+                </p>
+            </div>
+            <div class="main__info">
+                <ul>
+                    <li>clientX<span class="clientX">0</span></li>
+                    <li>offsetX<span class="offsetX">0</span></li>
+                    <li>pageX<span class="pageX">0</span></li>
+                    <li>screenX<span class="screenX">0</span></li>
+                </ul>
+            </div>
+        </main>
+        <!-- //main -->
+
+        <footer id="footer">
+            <div class="footer__inner">
+                <nav>
+                    <ul>
+                        <li class="active"><a href="mouse01.html">01</a></li>
+                        <li><a href="mouse02.html">02</a></li>
+                        <li><a href="mouse03.html">03</a></li>
+                        <li><a href="mouse04.html">04</a></li>
+                    </ul>
+            </div>
+            </nav>
+        </footer>
+        <!-- //footer -->
+
+    </div>
+    <!-- //wrap -->
+
+    <script>
+        // info
+        window.addEventListener("mousemove", function (event) {
+            console.log(event);
+            document.querySelector(".clientX").innerText = event.clientX;
+            document.querySelector(".offsetX").innerText = event.offsetX;
+            document.querySelector(".pageX").innerText = event.pageX;
+            document.querySelector(".screenX").innerText = event.screenX;
+        });
+
+        //mouse
+        const cursor = document.querySelector(".cursor");
+
+        window.addEventListener("mousemove", function (e) {
+            cursor.style.left = e.clientX - 50 + "px";
+            cursor.style.top = e.clientY - 50 + "px";
+        });
+
+        document.querySelector(".main__inner p span:nth-child(1)").addEventListener("mouseover", function () {
+            cursor.classList.add("span1");
+        });
+        document.querySelector(".main__inner p span:nth-child(1)").addEventListener("mouseout", function () {
+            cursor.classList.remove("span1");
+        });
+        document.querySelector(".main__inner p span:nth-child(2)").addEventListener("mouseover", function () {
+            cursor.classList.add("span2");
+        });
+        document.querySelector(".main__inner p span:nth-child(2)").addEventListener("mouseout", function () {
+            cursor.classList.remove("span2");
+        });
+
+        document.querySelector(".main__inner p span:nth-child(3)").addEventListener("mouseover", function () {
+            cursor.classList.add("span3");
+        });
+        document.querySelector(".main__inner p span:nth-child(3)").addEventListener("mouseout", function () {
+            cursor.classList.remove("span3");
+        });
+
+        document.querySelector(".main__inner p span:nth-child(4)").addEventListener("mouseover", function () {
+            cursor.classList.add("span4");
+        });
+        document.querySelector(".main__inner p span:nth-child(4)").addEventListener("mouseout", function () {
+            cursor.classList.remove("span4");
+        });
+
+        // for문
+
+        // forEach()
+    </script>
+
+</body>
+
+</html>
