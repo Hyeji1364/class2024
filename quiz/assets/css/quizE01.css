@@ -260,9 +260,21 @@ a {
     color: #FFEC51;
 }
 
-.quiz__play .answer {}
+.quiz__play .answer {
+    width: 100%;
+    height: 100%;
+}
 
 .quiz__play .answer input {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    border: 0;
+    text-align: center;
+    font-size: 50px;
+}
+
+.input input {
     width: 100%;
     height: 100%;
     border-radius: 20px;
@@ -277,6 +289,16 @@ a {
 }
 
 .quiz__play .confirm button {
+    font-size: 20px;
+    padding: 10px 20px;
+    font-family: 'GmarketSans';
+    border-radius: 50px;
+    border: 0;
+    background-color: #4238CA;
+    color: #fff;
+}
+
+.quiz__play .next button {
     font-size: 20px;
     padding: 10px 20px;
     font-family: 'GmarketSans';
