@@ -25,7 +25,7 @@
 
         .main__inner p {
             color: #d2d2d2;
-            padding: 20vw;
+            padding: 0vw;
             font-size: 20vmax;
             text-align: center;
             font-weight: 900;
@@ -79,6 +79,114 @@
                 border 0.3s,
                 border-radius 0.3s
         }
+
+        .cursor::before {
+            content: '';
+            width: 20px;
+            height: 1px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor::after {
+            content: '';
+            width: 1px;
+            height: 20px;
+            background-color: #fff;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .cursor.span1 {
+            background-color: #d8e1c6;
+            border: 1px solid #b9f6ea;
+        }
+
+        .cursor.span1::before {
+            background-color: #b9f6ea;
+        }
+
+        .cursor.span1::after {
+            background-color: #b9f6ea;
+        }
+
+        .cursor.span2 {
+            background-color: #62ffc843;
+            border: 1px solid #62ffc820;
+            transform: scale(0.5);
+        }
+
+        .cursor.span2::before {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span2::after {
+            background-color: #62ffc8;
+        }
+
+        .cursor.span3 {
+            background-color: #ff628443;
+            border: 1px solid #ff628420;
+            border-radius: 1%;
+            transform: rotate(720deg) scale(2);
+        }
+
+        .cursor.span3::before {
+            background-color: #ff6284;
+        }
+
+        .cursor.span3::after {
+            background-color: #ff6284;
+        }
+
+        .cursor.span4 {
+            width: 80px;
+            height: 80px;
+            background-color: #ff628443;
+            border: 1px solid #ff628420;
+            position: relative;
+            transform-origin: center;
+            animation: heartbeat 1s infinite;
+        }
+
+        .cursor.span4::before,
+        .cursor.span4::after {
+            content: "";
+            position: absolute;
+            width: 40px;
+            height: 60px;
+            background-color: #ff6284;
+            border-radius: 50px 50px 0 0;
+        }
+
+        .cursor.span4::before {
+            left: 0;
+            transform: rotate(-45deg);
+        }
+
+        .cursor.span4::after {
+            right: 0;
+            transform: rotate(45deg);
+        }
+
+        @keyframes heartbeat {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
     </style>
 </head>
 
@@ -116,8 +224,8 @@
                         <li><a href="mouse03.html">03</a></li>
                         <li><a href="mouse04.html">04</a></li>
                     </ul>
+                </nav>
             </div>
-            </nav>
         </footer>
         <!-- //footer -->
 
