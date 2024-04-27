@@ -59,7 +59,7 @@ li {
     background-color: #aaa;
 }
 
-#header .nav>u>li>ul {
+#header .nav>ul>li>ul {
     margin-bottom: 10px;
     display: none;
 }
