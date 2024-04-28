@@ -15,9 +15,6 @@ ranking = soup.select(".ranking > strong")
 title = soup.select(".title > a")
 artist = soup.select(".artist > a:nth-child(1)")
 
-# print(len(ranking))
-# print(len(title))
-# print(len(artist))
 
 # 데이터 저장
 # rankingList = []
@@ -39,7 +36,7 @@ rankingList = [r.text.strip() for r in ranking]
 titleList = [t.text.strip() for t in title]
 artistList = [a.text.strip() for a in artist]
 
-#데이터 프레임 생성
+# 데이터 프레임 생성
 chart_df = pd.DataFrame ({
     'Rank': rankingList,
     'Title' : titleList,

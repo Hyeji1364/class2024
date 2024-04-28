@@ -15,7 +15,7 @@ soup = bs(res.text, "lxml")
 # 데이터 선택
 ranking = soup.select("tbody .wrap.t_center > .rank")
 title = soup.select("tbody .wrap_song_info .ellipsis.rank01 span > a")
-artist = soup.select("tbody .wrap_song_info .ellipsis.rank02 span > a:nth-child(1)")
+artist = soup.select("t.svelte-154tqzm click-action")
 
 
 print(len(ranking))
@@ -35,4 +35,4 @@ chart_df = pd.DataFrame ({
 })
 
 # JSON 파일로 저장
-chart_df.to_json("melonChart.json", force_ascii=False, orient="records")
+chart_df.to_json("melonChartTop100.json", force_ascii=False, orient="records")
