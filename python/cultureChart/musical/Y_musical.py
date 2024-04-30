@@ -32,7 +32,7 @@ time.sleep(2)  # 뮤지컬 페이지 로딩 대기
 
 # 월간 카테고리 선택
 monthly_category = WebDriverWait(browser, 10).until(
-    EC.presence_of_element_located((By.XPATH, "//a[contains(@categoryid, '3') and contains(text(), '월간')]"))
+    EC.presence_of_element_located((By.XPATH, "//a[@categoryid='3']"))
 )
 monthly_category.click()
 time.sleep(2)  # 월간 카테고리 로딩 대기
@@ -57,22 +57,30 @@ if rank_best_div:
             musical_info['date_and_location'] = musical_link.find('p', class_='rlb-sub-tit').get_text(strip=True)
             musical_info['rank'] = musical_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
             musicals_data.append(musical_info)
-
-# 1위부터 10위까지 정보 추출
+            
+# 뮤지컬 순위 정보 추출
 rank_list = soup.find_all('div', class_='rank-list')[0]  # 첫번째 rank-list 컨테이너 선택
-items = rank_list.find_all('div', recursive=False)[:7]  # 상위 10개 항목 추출
+items = rank_list.find_all('div', recursive=False)[:7]  # 4위부터 10위까지의 항목 추출
 for item in items:
     musical_info = {}
     title_link = item.find('p', class_='rank-list-tit').find('a')
     image = item.find('img', class_='rank-list-img')
     date_location = item.find_all('p')[-1]
-    rank = item.find('span', class_=lambda x: x and 'rank-list-number' in x)
+    fluctuation_div = item.find('div', class_='fluctuation')  # 순위 정보를 포함하는 div 태그를 찾는다.
+
+    # 순위 정보를 추출
+    if fluctuation_div:
+        rank_span = fluctuation_div.find('p').find('span')  # 첫 번째 <p> 태그 내의 <span>에서 순위를 찾는다.
+        rank = rank_span.text.strip() if rank_span else 'No rank provided'
+    else:
+        rank = 'No rank provided'
 
     musical_info['title'] = title_link.text.strip() if title_link else 'No title provided'
     musical_info['image_url'] = image['src'] if image else 'No image provided'
     musical_info['date_and_location'] = date_location.get_text(strip=True) if date_location else 'No date and location provided'
-    musical_info['rank'] = rank.get_text(strip=True) if rank else 'No rank provided'
+    musical_info['rank'] = rank
     musicals_data.append(musical_info)
+
 # 결과를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as file:
     json.dump(musicals_data, file, ensure_ascii=False, indent=4)
