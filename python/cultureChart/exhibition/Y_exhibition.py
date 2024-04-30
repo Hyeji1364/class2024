@@ -18,47 +18,73 @@ filename = f"chart_Y_exhibition10_{current_date}.json"
 options = ChromeOptions()
 service = ChromeService(executable_path=ChromeDriverManager().install())
 browser = webdriver.Chrome(service=service, options=options)
+
+# 웹 사이트 접속
 browser.get("http://ticket.yes24.com/Rank/All")
+time.sleep(2)  # 페이지 로딩 대기
 
-# rank-division 클래스를 가진 div 요소를 찾기
-search_box = browser.find_element(By.CLASS_NAME, "rank-division")
-# div 내에서 모든 a 태그 요소를 찾기
-a_tags = search_box.find_elements(By.TAG_NAME, "a")
-# 두 번째 a 태그의 소스를 가져오기
-second_a_tag = a_tags[5]
-second_a_tag.click()
+# 전시/행사 카테고리로 이동
+event_link = WebDriverWait(browser, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//a[contains(@href, '/New/Rank/Ranking.aspx?genre=15460')]"))
+)
+event_link.click()
+time.sleep(2)  # 전시/행사 페이지 로딩 대기
+
 # 월간 카테고리 선택
-monthly_category = browser.find_element(By.XPATH, '//a[@categoryid="3"]')
+monthly_category = WebDriverWait(browser, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//a[contains(@categoryid, '3') and contains(text(), '월간')]"))
+)
 monthly_category.click()
+time.sleep(2)  # 월간 카테고리 로딩 대기
 
-time.sleep(3)
-# 대기
-WebDriverWait(browser, 10).until(EC.presence_of_element_located((By.CLASS_NAME, 'rank-division')))
-# 새로운 페이지 소스 가져오기
+# 웹 페이지 소스 가져오기
 page_source = browser.page_source
-# BeautifulSoup을 사용하여 페이지 소스 파싱
 soup = BeautifulSoup(page_source, 'html.parser')
 
-# 원하는 데이터 추출 및 처리
-concerts_data = []
+# 정보 추출
+events_data = []
 
 # Extracting data from rank-best div
 rank_best_div = soup.find('div', class_='rank-best')
 if rank_best_div:
-    concert_divs = rank_best_div.find_all('div')
-    for concert_div in concert_divs:
-        concert_info = {}
-        concert_link = concert_div.find('a', href=True)
-        if concert_link:
-            concert_info['title'] = concert_link['title']
-            concert_info['image_url'] = concert_link.find('img')['src']
-            concert_info['date_and_location'] = concert_link.find('p', class_='rlb-sub-tit').get_text(strip=True)
-            concert_info['rank'] = concert_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
-            concerts_data.append(concert_info)
+    event_divs = rank_best_div.find_all('div')
+    for event_div in event_divs:
+        event_info = {}
+        event_link = event_div.find('a', href=True)
+        if event_link:
+            event_info['title'] = event_link['title']
+            event_info['image_url'] = event_link.find('img')['src']
+            event_info['date_and_location'] = event_link.find('p', class_='rlb-sub-tit').get_text(strip=True)
+            event_info['rank'] = event_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
+            events_data.append(event_info)
 
-# Saving the extracted data to a JSON file
+# 전시/행사 순위 정보 추출
+rank_list = soup.find('div', class_='rank-list')  # 첫번째 rank-list 컨테이너 선택
+if rank_list:
+    items = rank_list.find_all('div', recursive=False)[:7]  # 4위부터 10위까지의 정보 추출
+    for item in items:
+        event_info = {}
+        title_link = item.find('p', class_='rank-list-tit').find('a')
+        image = item.find('img', class_='rank-list-img')
+        date_location = item.find_all('p')[-1]
+        fluctuation_div = item.find('div', class_='fluctuation')
+
+        # 순위 정보를 추출
+        if fluctuation_div:
+            rank_span = fluctuation_div.find('p').find('span')
+            rank = rank_span.text.strip() if rank_span else 'No rank provided'
+        else:
+            rank = 'No rank provided'
+
+        event_info['title'] = title_link.text.strip() if title_link else 'No title provided'
+        event_info['image_url'] = image['src'] if image else 'No image provided'
+        event_info['date_and_location'] = date_location.get_text(strip=True) if date_location else 'No date and location provided'
+        event_info['rank'] = rank
+        events_data.append(event_info)
+
+# 결과를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as file:
-    json.dump(concerts_data, file, ensure_ascii=False, indent=4)
+    json.dump(events_data, file, ensure_ascii=False, indent=4)
 
 # 브라우저 닫기
 browser.quit()

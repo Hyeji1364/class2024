@@ -58,20 +58,27 @@ if rank_best_div:
             concert_info['rank'] = concert_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
             concerts_data.append(concert_info)
 
-# 1위부터 10위까지 정보 추출
+# 콘서트 순위 정보 추출
 rank_list = soup.find_all('div', class_='rank-list')[0]  # 첫번째 rank-list 컨테이너 선택
-items = rank_list.find_all('div', recursive=False)[:7]  # 상위 10개 항목 추출
+items = rank_list.find_all('div', recursive=False)[:7]  # 4위부터 10위까지의 항목 추출
 for item in items:
     concert_info = {}
     title_link = item.find('p', class_='rank-list-tit').find('a')
     image = item.find('img', class_='rank-list-img')
     date_location = item.find_all('p')[-1]
-    rank = item.find('span', class_=lambda x: x and 'rank-list-number' in x)
+    fluctuation_div = item.find('div', class_='fluctuation')  # 순위 정보를 포함하는 div 태그를 찾는다.
+
+    # 순위 정보를 추출
+    if fluctuation_div:
+        rank_span = fluctuation_div.find('p').find('span')  # 첫 번째 <p> 태그 내의 <span>에서 순위를 찾는다.
+        rank = rank_span.text.strip() if rank_span else 'No rank provided'
+    else:
+        rank = 'No rank provided'
 
     concert_info['title'] = title_link.text.strip() if title_link else 'No title provided'
     concert_info['image_url'] = image['src'] if image else 'No image provided'
     concert_info['date_and_location'] = date_location.get_text(strip=True) if date_location else 'No date and location provided'
-    concert_info['rank'] = rank.get_text(strip=True) if rank else 'No rank provided'
+    concert_info['rank'] = rank
     concerts_data.append(concert_info)
 
 # 결과를 JSON 파일로 저장
