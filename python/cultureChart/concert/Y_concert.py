@@ -1,4 +1,3 @@
-import json
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.options import Options as ChromeOptions
@@ -8,6 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 import time
+import json
 from datetime import datetime
 
 # 현재 날짜 가져오기
@@ -18,26 +18,33 @@ filename = f"chart_Y_concert10_{current_date}.json"
 options = ChromeOptions()
 service = ChromeService(executable_path=ChromeDriverManager().install())
 browser = webdriver.Chrome(service=service, options=options)
-browser.get("http://ticket.yes24.com/Rank/All")
 
-# 페이지 로드를 위한 대기
-time.sleep(5)
+# 웹 사이트 접속
+browser.get("http://ticket.yes24.com/Rank/All")
+time.sleep(2)  # 페이지 로딩 대기
+
+# 콘서트 카테고리로 이동
+concert_link = WebDriverWait(browser, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//a[contains(@href, '/New/Rank/Ranking.aspx?genre=15456')]"))
+)
+concert_link.click()
+time.sleep(2)  # 콘서트 페이지 로딩 대기
 
 # 월간 카테고리 선택
-WebDriverWait(browser, 20).until(EC.element_to_be_clickable((By.XPATH, "//a[@categoryid='3']"))).click()
+monthly_category = WebDriverWait(browser, 10).until(
+    EC.presence_of_element_located((By.XPATH, "//a[contains(@categoryid, '3') and contains(text(), '월간')]"))
+)
+monthly_category.click()
+time.sleep(2)  # 월간 카테고리 로딩 대기
 
-# 페이지가 완전히 로드될 때까지 대기
-time.sleep(5)
-
-# 새로운 페이지 소스 가져오기
+# 웹 페이지 소스 가져오기
 page_source = browser.page_source
-# BeautifulSoup을 사용하여 페이지 소스 파싱
 soup = BeautifulSoup(page_source, 'html.parser')
 
-# 원하는 데이터 추출 및 처리
+# 정보 추출
 concerts_data = []
 
-# 1위부터 3위 정보 추출
+# Extracting data from rank-best div
 rank_best_div = soup.find('div', class_='rank-best')
 if rank_best_div:
     concert_divs = rank_best_div.find_all('div')
@@ -45,31 +52,31 @@ if rank_best_div:
         concert_info = {}
         concert_link = concert_div.find('a', href=True)
         if concert_link:
-            concert_info['title'] = concert_link.get('title')
+            concert_info['title'] = concert_link['title']
             concert_info['image_url'] = concert_link.find('img')['src']
             concert_info['date_and_location'] = concert_link.find('p', class_='rlb-sub-tit').get_text(strip=True)
             concert_info['rank'] = concert_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
             concerts_data.append(concert_info)
 
-# 4위부터 10위 정보 추출
-rank_list_div = soup.find('div', class_='rank-list')
-if rank_list_div:
-    concert_divs = rank_list_div.find_all('div', recursive=False)
-    for concert_div in concert_divs[:7]:  # 처음 7개 항목만 추출
-        concert_info = {}
-        concert_link = concert_div.find('a', href=True)
-        if concert_link:
-            concert_info['title'] = concert_link.find('p', class_='rank-list-tit').text.strip()
-            concert_info['image_url'] = concert_link.find('img')['src']
-            concert_info['date_and_location'] = concert_div.find('div').find('p').get_text(strip=True)
-            concert_info['rank'] = concert_div.find('div', class_='fluctuation').find('span').get_text(strip=True)
-            concerts_data.append(concert_info)
+# 1위부터 10위까지 정보 추출
+rank_list = soup.find_all('div', class_='rank-list')[0]  # 첫번째 rank-list 컨테이너 선택
+items = rank_list.find_all('div', recursive=False)[:7]  # 상위 10개 항목 추출
+for item in items:
+    concert_info = {}
+    title_link = item.find('p', class_='rank-list-tit').find('a')
+    image = item.find('img', class_='rank-list-img')
+    date_location = item.find_all('p')[-1]
+    rank = item.find('span', class_=lambda x: x and 'rank-list-number' in x)
 
-# Saving the extracted data to a JSON file
+    concert_info['title'] = title_link.text.strip() if title_link else 'No title provided'
+    concert_info['image_url'] = image['src'] if image else 'No image provided'
+    concert_info['date_and_location'] = date_location.get_text(strip=True) if date_location else 'No date and location provided'
+    concert_info['rank'] = rank.get_text(strip=True) if rank else 'No rank provided'
+    concerts_data.append(concert_info)
+
+# 결과를 JSON 파일로 저장
 with open(filename, 'w', encoding='utf-8') as file:
     json.dump(concerts_data, file, ensure_ascii=False, indent=4)
 
 # 브라우저 닫기
 browser.quit()
-
-print(f"Data saved to {filename}")
