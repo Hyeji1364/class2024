@@ -200,6 +200,25 @@ li {
     font-family: var(--fontN);
 }
 
+.main__menu ul li a em {
+    font-style: normal;
+    position: relative;
+}
+
+.main__menu ul li a em::before {
+    content: '';
+    width: 100%;
+    height: 8px;
+    border-radius: 10px;
+    background-color: #e5d7d5;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: all 0.3s;
+}
+
+
 .main__menu ul li a:hover {
     text-decoration: underline;
     text-underline-position: under;
@@ -231,6 +250,36 @@ li {
     font-family: var(--fontN);
     line-height: 1.5;
     color: #666;
+}
+
+.main__sample .sample .notice {
+    background-color: #f6f6f6;
+    padding: 15px;
+    border-left: 5px solid rgb(241, 149, 149);
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.main__sample .sample ul {
+    margin-bottom: 15px;
+}
+
+.main__sample .sample li {
+    font-family: var(--fontN);
+    line-height: 1.9;
+    color: #666;
+    position: relative;
+    padding-left: 12px;
+}
+
+.main__sample .sample li::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    background-color: rgb(241, 149, 149);
+    position: absolute;
+    left: 0;
+    top: 10px;
 }
 
 /* 푸터 */
