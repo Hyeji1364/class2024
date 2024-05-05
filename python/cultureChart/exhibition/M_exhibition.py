@@ -19,6 +19,11 @@ url = "https://ticket.melon.com/ranking/index.htm"
 driver.get(url)
 time.sleep(5)  # 페이지 로딩 대기
 
+# "전시/클래식/기타" 섹션으로 전환
+button_exh_classic_etc = driver.find_element(By.CSS_SELECTOR, 'button[value="NEW_GENRE_EXH"]')
+button_exh_classic_etc.click()
+time.sleep(2)  # 섹션 변경 후 데이터 로딩 대기
+
 # 스크롤 다운을 통한 모든 데이터 로딩 (필요한 경우)
 driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
 time.sleep(2)
@@ -41,7 +46,7 @@ for row in rows:
 
 # JSON 파일로 저장
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"chart_M_concert10_{current_date}.json"
+filename = f"chart_M_exhibition_{current_date}.json"
 with open(filename, 'w', encoding='utf-8') as file:
     json.dump(data, file, ensure_ascii=False, indent=4)
 

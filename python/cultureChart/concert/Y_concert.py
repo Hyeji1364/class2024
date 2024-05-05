@@ -44,7 +44,7 @@ soup = BeautifulSoup(page_source, 'html.parser')
 # 정보 추출
 concerts_data = []
 
-# Extracting data from rank-best div
+# 1~3위 콘서트 정보 추출
 rank_best_div = soup.find('div', class_='rank-best')
 if rank_best_div:
     concert_divs = rank_best_div.find_all('div')
@@ -58,7 +58,7 @@ if rank_best_div:
             concert_info['rank'] = concert_link.find('p', class_='rank-best-number').find('span').get_text(strip=True)
             concerts_data.append(concert_info)
 
-# 콘서트 순위 정보 추출
+# 4~10위 콘서트 순위 정보 추출
 rank_list = soup.find_all('div', class_='rank-list')[0]  # 첫번째 rank-list 컨테이너 선택
 items = rank_list.find_all('div', recursive=False)[:7]  # 4위부터 10위까지의 항목 추출
 for item in items:
