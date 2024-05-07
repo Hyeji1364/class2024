@@ -157,31 +157,19 @@
             <div id="sample06" class="sample">
                 <h3>06. 💛.includes() </h3>
                 <p class="notice">문자열에서의 사용 : string.includes(searchString, position)</p>
-                <p class="notice">배열에서의 사용 : array.includes(searchElement, fromIndex)</p>
-
                 <ul>
-                    <li>문자열 - searchString: 문자열에서 찾고자 하는 부분 문자열입니다.</li>
-                    <li>문자열 - position (선택적): 검색을 시작할 위치를 지정합니다. 기본값은 0입니다.</li>
-                    <li>배열 - searchElement: 배열에서 찾고자 하는 요소입니다.</li>
-                    <li>배열 - fromIndex (선택적): 검색을 시작할 인덱스입니다. 기본값은 0입니다.</li>
+                    <li>searchString: 문자열에서 찾고자 하는 부분 문자열입니다.</li>
+                    <li>position (선택적): 검색을 시작할 위치를 지정합니다. 기본값은 0입니다.</li>
                     <li>메서드는 문자열 포함 여부를 검색하여, 불린(true, false)을 반환합니다.</li>
                     <li>대소문자를 구별합니다.</li>
                     <li>문자열이 포함되어 있으면 'true'를 그렇지 않으면 'false'를 반환합니다.</li>
                     <li>검색하려는 요소를 첫번째 매개변수로 지정하고, 검색을 시작할 위치를 두 번째 매개변수로 선택적으로 지정할 수 있습니다.</li>
                 </ul>
                 <pre class="javascript"><code>{
-// 문자열에서의 사용
 let text = "Hello, world!";
 console.log(text.includes("world"));  // 출력: true
 console.log(text.includes("hello"));  // 출력: false (대소문자 구분)
 console.log(text.includes("o", 5));   // 출력: true (인덱스 5부터 'o' 검색)
-
-// 배열에서의 사용
-let numbers = [1, 2, 3, 4, 5];
-console.log(numbers.includes(2));         // 출력: true
-console.log(numbers.includes(7));         // 출력: false
-console.log(numbers.includes(3, 3));      // 출력: false (인덱스 3부터 검색)
-
 }</code></pre>
                 <div class="result">
                     <details>
@@ -190,9 +178,6 @@ console.log(numbers.includes(3, 3));      // 출력: false (인덱스 3부터 �
                             true<br>
                             false<br>
                             true<br>
-                            true<br>
-                            false<br>
-                            false<br>
                         </div>
                     </details>
                 </div>
@@ -201,32 +186,22 @@ console.log(numbers.includes(3, 3));      // 출력: false (인덱스 3부터 �
 
             <div id="sample07" class="sample">
                 <h3>07. 💛indexOf()</h3>
-                <p class="notice">문자열에서의 사용 : string.indexOf(searchValue, fromIndex)</p>
-                <p class="notice">배열에서의 사용 : array.indexOf(searchElement, fromIndex)</p>
+                <p class="notice">string.indexOf(searchValue, fromIndex)</p>
 
                 <ul>
-                    <li>문자열 - searchValue: 찾고자 하는 문자열입니다.</li>
-                    <li>문자열 - fromIndex (선택적): 검색을 시작할 위치입니다. 이 매개변수를 생략하면 기본값은 0입니다.</li>
-                    <li>배열 - searchElement: 배열에서 찾고자 하는 요소입니다.</li>
-                    <li>배열 - fromIndex (선택적): 검색을 시작할 인덱스입니다. 기본값은 0입니다.</li>
+                    <li>searchValue: 찾고자 하는 문자열입니다.</li>
+                    <li>fromIndex (선택적): 검색을 시작할 위치입니다. 이 매개변수를 생략하면 기본값은 0입니다.</li>
                     <li>요소가 존재하지 않으면 '-1'을 반환합니다.</li>
                     <li>대소문자를 구분하며, 정확한 일치를 찾습니다.</li>
                     <li>배열에서는 특정 요소의 위치를, 문자열에서는 부분 문자열의 시작 위치를 알아내는데 유용하게 사용할 수 있습니다.</li>
                 </ul>
                 <pre class="javascript"><code>{
-// 문자열에서의 사용
 let text = "Hello, world!";
 console.log(text.indexOf("world"));   // 출력: 7
 console.log(text.indexOf("Hello"));   // 출력: 0
 console.log(text.indexOf("o"));       // 출력: 4
 console.log(text.indexOf("z"));       // 출력: -1 (존재하지 않는 경우)
 console.log(text.indexOf("o", 5));    // 출력: 8 (인덱스 5 이후의 'o' 위치)
-
-//배열에서의 사용
-let numbers = [1, 2, 3, 4, 5, 2];
-console.log(numbers.indexOf(2));         // 출력: 1
-console.log(numbers.indexOf(7));         // 출력: -1 (존재하지 않는 경우)
-console.log(numbers.indexOf(2, 2));      // 출력: 5 (인덱스 2 이후에 위치한 '2'의 인덱스)
 }</code></pre>
                 <div class="result">
                     <details>
@@ -237,9 +212,6 @@ console.log(numbers.indexOf(2, 2));      // 출력: 5 (인덱스 2 이후에 위
                             4<br>
                             -1<br>
                             8<br>
-                            1<br>
-                            -1<br>
-                            5<br>
                         </div>
                     </details>
                 </div>

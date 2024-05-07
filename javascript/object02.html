@@ -95,21 +95,52 @@
 
             <div id="sample07" class="sample">
                 <h3>07. 💛💛find()</h3>
-                <p class="notice">"문자열".at(위치값)</p>
+                <p class="notice"><b>const foundElement = 배열.find(function(element, index, array) {</b><br>
+                    <br>
+                    <b>return 조건; </b> // 조건이 true일 때 현재 요소를 반환 <br>
+                    <b>});</b>
+                </p>
 
                 <ul>
                     <li>메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</li>
-                    <li>Python에서 문자열 내에서 특정 부분 문자열이 존재하지 않는다면, 이 메서드는 '-1'을 반환합니다.</li>
-                    <li>이 메서드는 문자열에서만 사용됩니다.</li>
+                    <li>javascript에서 배열의 요소들을 순회하며 주어진 조건을 만족하는 첫 번째 요소를 찾아 반환하는 함수입니다.</li>
+                    <li>이 메서드는 콜백 함수를 인자로 받고, 이 콜백 함수는 각 요소를 평가하여 조건에 맞는지 확인합니다.</li>
+                    <li>조건에 맞는 첫 번째 요소를 찾으면 그 요소를 반환하고, 만약 조건을 만족하는 요소가 없으면 undefined를 반환합니다. </li>
+                    <li>find() 메서드는 원본 배열을 변경하지 않습니다. </li>
+
                 </ul>
                 <pre class="javascript"><code>{
+// 01. 객체 배열에서 특정 조건을 만족하는 객체 찾기:
+const products = [
+    { id: 1, name: 'Keyboard', price: 29.99 },
+    { id: 2, name: 'Mouse', price: 19.99 },
+    { id: 3, name: 'Monitor', price: 99.99 }
+];
+
+const cheapProduct = products.find(function(product) {
+    return product.price < 30; // 가격이 30 미만인 제품 찾기
+});
+
+console.log(cheapProduct); // 출력: { id: 1, name: 'Keyboard', price: 29.99 }
+
+
+// 02. 배열에서 특정 숫자 찾기:
+const numbers = [5, 12, 8, 130, 44];
+const firstLargeNumber = numbers.find(function(number) {
+    return number > 10;
+});
+
+console.log(firstLargeNumber); // 출력: 12
+
 }</code></pre>
+                <p>'02.배열에서 특정 숫자 찾기'의 옝에서는 'numbers' 배열에서 10보다 큰 첫 번째 숫자를 찾습니다. 조건에 맞는 첫 번째 숫자는 12이므로, 12가 출력됩니다.</p>
+                </p>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            javascript reference
-                            undefined
+                            { id: 1, name: 'Keyboard', price: 29.99 } <br>
+                            12
                         </div>
                     </details>
                 </div>
@@ -117,56 +148,509 @@
             <!-- //sample07 -->
 
             <div id="sample13" class="sample">
-                <h3>01. at()</h3>
-                <p class="notice">"문자열".at(위치값)</p>
-
+                <h3>13. 💛💛💛forEach()</h3>
+                <p class="notice"><b>"배열.forEach(function(element, index, array) { <br>
+                        <br>
+                        }); </b>
+                </p>
+                <p>element: 요소 / index : 인덱스 / array: forEach가 호출된 배열 </p>
                 <ul>
-                    <li>지정한 숫자(index)를 받아, 문자열에서 해당되는 인덱스의 요소를 반환합니다.</li>
-                    <li>대소문자를 구별합니다.</li>
-                    <li>문자열의 길이보다 큰 인덱스를 지정하면 undefined를 반환합니다.</li>
-                    <li>음수인 경우 문자열의 오른쪽에서부터 인덱스를 셉니다.</li>
-                    <li>여기서 주어진 문자열은 "javascript reference"이며, at() 함수에 인덱스를 전달하여 해당 인덱스에 해당하는 문자를 반환합니다. </li>
+                    <li>forEach()메서드는 주어진 함수 조건을 배열 요소 각각에 대해 실행하고, 그 결과를 반환합니다.</li>
+                    <li>JavaScript의 배열 메서드 중 하나로, 배열의 각 요소에 대해 주어진 함수를 한 번 씩 실행합니다.</li>
+                    <li>이 메서드는 배열의 각 요소마다 콜백 함수를 호출하면서, 요소 자체와 요소의 인덱스, 그리고 배열 전체를 인자로 전달합니다.</li>
+                    <li>forEach() 메서드는 원본 배열을 수정하지 않으며 반환값도 없습니다(즉, undefined를 반환합니다).</li>
+                    <li>이 메서드는 주로 배열 내 각 요소에 대해 연산을 수행하거나 결과를 출력하는 등의 작업에 사용됩니다.</li>
+
                 </ul>
                 <pre class="javascript"><code>{
-"javascript reference".at()       //j
-"javascript reference".at(0)      //j
-"javascript reference".at(1)      //a
-"javascript reference".at(2)      //v
-"javascript reference".at(3)      //a
-"javascript reference".at(4)      //s
-"javascript reference".at(5)      //c
-"javascript reference".at(6)      //r
-"javascript reference".at(7)      //i
-"javascript reference".at(8)      //p
-"javascript reference".at(9)      //t
-"javascript reference".at(10)     //' '
-"javascript reference".at(-1)     //e
-"javascript reference".at(-2)     //c
-"javascript reference".at(-3)     //n
-"javascript reference".at(-4)     //e
-"javascript reference".at(-5)     //r
-"javascript reference".at(-6)     //e
-"javascript reference".at(-7)     //f
-"javascript reference".at(-8)     //e
-"javascript reference".at(-9)     //r
-"javascript reference".at(100)    // undefined     
+const numbers = [1, 2, 3, 4, 5];
+numbers.forEach(function(number, index) {
+    console.log(`Index ${index}: ${number}`);
+});
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            javascript reference
-                            undefined
+                            Index 0: 1
+                            Index 1: 2
+                            Index 2: 3
+                            Index 3: 4
+                            Index 4: 5
                         </div>
                     </details>
                 </div>
             </div>
             <!-- //sample13 -->
 
+            <div id="sample14" class="sample">
+                <h3>14. 💛filter()</h3>
+                <p class="notice"><b>const newArray = 배열.filter(function(element, index, array) { <br>
+                        <br>
+                        return 조건; // 조건이 true일 때 요소를 새 배열에 포함 <br>
+                        }); </b>
+                </p>
+                <p>element: 배열에서 현재 처리 중인 요소입니다.<br></p>
+                <p>index: 배열에서 현재 처리 중인 요소의 인덱스입니다.<br></p>
+                <p>array: filter()가 호출된 배열입니다.<br></p>
+                <ul>
+                    <li>이 메서드는 주어진 함수 조건에 맞는 모든 요소를 새로운 배열로 반환합니다.</li>
+                    <li>콜백 함수를 인자로 받으며, 이 콜백 함수는 각 요소를 평가하여 'true' 또는 'false'를 반환합니다.</li>
+                    <li>true를 반환하는 요소만이 새 배열에 포함됩니다.</li>
+                    <li>filter()는 원본 배열을 변경하지 않으며, 조건에 맞는 요소들로 구성된 새로운 배열을 반환합니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+const numbers = [1, 2, 3, 4, 5, 6];
+const evenNumbers = numbers.filter(function(number) {
+    return number % 2 === 0; // 짝수 조건
+});
+console.log(evenNumbers); // 출력: [2, 4, 6]
+}</code></pre>
+                <p>위의 예시에서는 숫자 배열에서 짝수만 필터링하여 새로운 배열을 생성하는 방법을 보여줍니다.<br>
+                    이 코드는 배열 numbers의 각 요소를 콜백 함수에 전달하고, 짝수인지 확인합니다.<br>
+                    짝수일 경우 true를 반환하며, 이 때문에 해당 요소는 evenNumbers 배열에 포함됩니다.</p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            [2, 4, 6]
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample14 -->
+
+            <div id="sample16" class="sample">
+                <h3>16. 💛💛💛map()</h3>
+                <p class="notice"><b>const newArray = 배열.map(function(element, index, array){ </b><br>
+                    <br>
+                    <b>return 새로운 값;<br>
+                        });</b> <br>
+                </p>
+
+                <ul>
+                    <li>이 메서드는 주어진 함수를 호출하여 각 요소에 대한 결과를 모아 새로운 배열을 만듭니다.</li>
+                    <li>이 메서드는 원본 배열의 모든 요소를 하나씩 처리하여 그 결과를 새 배열의 해당 위치에 저장합니다.</li>
+                    <li> map()은 배열의 길이를 변경하지 않고, 원본 배열은 수정하지 않으면서 각 요소에 대해 주어진 함수를 실행한 결과로 구성된 새 배열을 반환합니다.</li>
+                    <li>map() 메서드는 데이터를 변환하거나 수정하여 새로운 형태의 데이터를 생성할 때 매우 유용합니다.</li>
+                    <li>예를 들어, 객체 배열에서 특정 키의 값을 수정하거나 새로운 키를 추가하는 등의 작업에 자주 사용됩니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+const numbers = [1, 2, 3, 4, 5];
+const squaredNumbers = numbers.map(function(number) {
+    return number * number; // 각 숫자를 제곱
+});
+console.log(squaredNumbers); // 출력: [1, 4, 9, 16, 25]
+}</code></pre>
+                <p>위의 예시에서는 숫자 배열의 각 요소를 제곱하여 새로운 배열을 생성하는 방법을 보여줍니다.<br>
+                    이 코드는 numbers 배열의 각 요소에 대해 제곱 연산을 수행하고, 그 결과를 squaredNumbers라는 새 배열에 저장합니다. 결과적으로, 각 숫자의 제곱값을 요소로 하는
+                    새 배열이 출력됩니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            [1, 4, 9, 16, 25]
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample16 -->
+
+            <div id="sample18" class="sample">
+                <h3>18. 💛includes()</h3>
+                <p class="notice"><b>const containsElement = 배열.includes(찾고자하는요소, 시작인덱스);</b><br>
+                <p>시작인덱스 : 검색을 시작할 인덱스입니다. 이 인자는 선택적이며, 기본값은 0입니다.</p>
+                <ul>
+                    <li>이 메서드는 배열 내에 특정 요소 또는 문자가 포함되어 있는지를 검색하여, 불린(true, false)을 반환합니다.</li>
+                    <li>배열에서는 특정 요소의 존재 여부를 확인할 때 사용하고, 문자열에서는 특정 문자열이 포함되어 있는지를 검사할 때 사용됩니다.</li>
+                    <li>includes() 메서드는 간단하게 특정 값이나 문자열이 포함되어 있는지 여부를 확인할 때 유용하게 사용되며, 조건문에서 특히 자주 사용됩니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+const fruits = ['apple', 'banana', 'mango'];
+const hasBanana = fruits.includes('banana');
+console.log(hasBanana); // 출력: true
+}</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            true
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample18 -->
+
+            <div id="sample19" class="sample">
+                <h3>19. 💛indexOf()</h3>
+                <p class="notice"><b>array.indexOf(searchElement, fromIndex)</b></p>
+
+                <ul>
+                    <li>메서드는 배열을 검색하고, 주어진 값과 일치하는 첫 번째 인덱스를 반환합니다.</li>
+                    <li>searchElement: 배열에서 찾고자 하는 요소입니다.</li>
+                    <li>fromIndex (선택적): 검색을 시작할 인덱스입니다. 기본값은 0입니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+let numbers = [1, 2, 3, 4, 5, 2];
+console.log(numbers.indexOf(2));         // 출력: 1
+console.log(numbers.indexOf(7));         // 출력: -1 (존재하지 않는 경우)
+console.log(numbers.indexOf(2, 2));      // 출력: 5 (인덱스 2 이후에 위치한 '2'의 인덱스)
+}</code></pre>
+                <p>📍01. 기본예시<br>
+                    여기서 'world'는 문자열 's'의 7번 인덱스에서 시작하기 때문에 '7'을 반환합니다.<br>
+                    'Python'은 문자열 's'에 존재하지 않기 때문에 '-1'이 반환됩니다.<br>
+                    <br>
+                    📍02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    두 번째 호출은 인덱스 5부터 13까지의 범위에서 'over'문자열이 포함되어 있지 않으므로 '-1'이 출력됩니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            1<br>
+                            -1<br>
+                            5<br>
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample19 -->
+
+            <div id="sample21" class="sample">
+                <h3>21. 💛💛join()</h3>
+                <p class="notice"><b>const newString = 배열.join(구분자);</b></p>
+                <p>💡 구분자 : 배열의 각 요소를 연결할 때 사이에 끼워넣을 문자열입니다. 이 인자는 선택적이며, 생략하면 요소들 사이에 쉼표가 들어갑니다.</p>
+
+                <ul>
+                    <li>메서드는 배열의 요소를 연결하여 하나의 문자열로 반환합니다.</li>
+                    <li>이 메서드는 배열 요소 사이에 삽입할 문자열을 인자로 받으며, 주어지지 않은 경우 기본적으로 쉼표(,)를 사용합니다.</li>
+                    <li>join()은 원본 배열을 변경하지 않고, 요소들을 연결한 새로운 문자열을 반환합니다.</li>
+                    <li>'join()' 메서드는 배열의 요소들을 하나의 문자열로 결합할 때 매우 유용합니다. </li>
+                    <li>이를 통해 간단하게 배열 데이터를 텍스트 형태로 출력하거나 파일로 저장할 데이터를 준비할 수 있습니다. </li>
+                    <li>사용자 정의 구분자를 설정함으로써 다양한 형식의 데이터를 생성할 수 있으며, 이는 로그 파일 생성이나 데이터 전송 등에서 특히 유용하게 사용될 수 있습니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 간단한 배열을 문자열로 변환:
+const fruits = ['apple', 'banana', 'mango'];
+const resultString = fruits.join(); // 구분자를 지정하지 않았기 때문에 쉼표가 사용됨
+console.log(resultString); // 출력: "apple,banana,mango"
+
+// 02. 쉼표 대신 다른 구분자 사용:
+const fruits = ['apple', 'banana', 'mango'];
+const resultString = fruits.join(' - '); // 구분자로 하이픈과 공백 사용
+console.log(resultString); // 출력: "apple - banana - mango"
+
+// 03. 빈 문자열을 구분자로 사용:
+const letters = ['H', 'e', 'l', 'l', 'o'];
+const word = letters.join(''); // 구분자로 빈 문자열 사용
+console.log(word); // 출력: "Hello"
+
+}</code></pre>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            "apple,banana,mango" <br>
+                            "apple - banana - mango" <br>
+                            ""Hello"
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample21 -->
+
+            <div id="sample23" class="sample">
+                <h3>23. 💛💛push()</h3>
+                <p class="notice"><b>const newLength = 배열.push(추가할요소1, 추가할요소2, ...);</b></p>
+                <ul>
+                    <li>메서드는 배열 끝에 하나 이상의 요소를 추가하고, 배열의 새로운 길이를 반환합니다.</li>
+                    <li>이 메서드는 배열을 직접 변경하며, 배열의 길이를 수정합니다. </li>
+                    <li>push()는 매우 흔하게 사용되는 배열 조작 메서드 중 하나로, 새로운 데이터를 배열에 동적으로 추가할 때 유용합니다.</li>
+                    <pre class="javascript"><code>{
+// 01. 배열에 요소 추가하기:
+const numbers = [1, 2, 3];
+const newLength = numbers.push(4, 5);
+console.log(numbers); // 출력: [1, 2, 3, 4, 5]
+console.log(newLength); // 출력: 5
+
+// 02. 객체가 포함된 배열에 새 객체 추가하기:
+const books = [
+    { title: "1984", author: "George Orwell" },
+    { title: "The Great Gatsby", author: "F. Scott Fitzgerald" }
+];
+
+books.push({ title: "Brave New World", author: "Aldous Huxley" });
+console.log(books);
+}</code></pre>
+                    <p> '01. 배열에 요소 추가하기'<br>
+                        이 코드에서는 numbers 배열에 4와 5를 추가합니다. push() 메서드는 배열의 새 길이, 즉 5를 반환하고, 원래의 배열은 [1, 2, 3, 4, 5]로
+                        변경됩니다.<br>
+                        <br>
+                        02. '객체가 포함된 배열에 새 객체 추가하기'<br>
+                        이 예시에서는 books라는 배열에 새로운 책의 객체를 추가합니다. 결과적으로, books 배열은 세 개의 책 객체를 포함하게 됩니다.
+                    </p>
+                    <div class="result">
+                        <details>
+                            <summary>결과 확인하기</summary>
+                            <div>
+                                [1, 2, 3, 4, 5]<br>
+                                5<br>
+                                [<br>
+                                { title: "1984", author: "George Orwell" }, <br>
+                                { title: "The Great Gatsby", author: "F. Scott Fitzgerald" }, <br>
+                                { title: "Brave New World", author: "Aldous Huxley" } <br>
+                                ]<br>
+                            </div>
+                        </details>
+                    </div>
+            </div>
+            <!-- //sample23 -->
+
+            <div id="sample24" class="sample">
+                <h3>07. 💛reduce()</h3>
+                <p class="notice"><b>const result = 배열.reduce(function(accumulator, currentValue, currentIndex, array)
+                        {</b><br>
+                    // 처리 로직<br>
+                    <b>return 새로운 누적 값;<br>
+                        }, 초기값);</b>
+                </p>
+                <p> accumulator: 이전 콜백 호출의 반환 값이며, 첫 번째 호출에서는 초기값입니다.<br>
+                    currentValue: 배열에서 현재 처리 중인 요소입니다.<br>
+                    currentIndex (선택적): 배열에서 현재 처리 중인 요소의 인덱스입니다.<br>
+                    array (선택적): reduce() 함수가 호출된 배열입니다.<br>
+                    초기값 (선택적): accumulator의 첫 번째 값으로 사용됩니다. 이 값이 제공되지 않으면 배열의 첫 번째 요소가 초기값으로 사용됩니다.<br></p>
+                <ul>
+                    <li>메서드는 배열의 각 요소에 주어진 리듀서 함수를 실행하고, 하나의 결과값을 반환합니다.</li>
+                    <li>JavaScript에서 배열의 각 요소를 하나씩 처리하여 단일 결과 값(누적 결과)을 생성하는 데 사용됩니다. </li>
+                    <li>이 함수는 배열을 "축소"하여 하나의 값으로 합치는 작업에 적합합니다.</li>
+                    <li>배열의 요소를 합산, 평균 계산, 객체 생성 등 다양한 방식으로 데이터를 집계할 때 유용합니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 숫자 배열의 총합 계산하기:
+const numbers = [1, 2, 3, 4, 5];
+const sum = numbers.reduce(function(accumulator, current) {
+    return accumulator + current;
+}, 0);  // 초기값으로 0을 설정
+console.log(sum); // 출력: 15
+
+// 02. 객체 배열에서 특정 속성의 값 합산하기:
+const items = [
+    { name: "apple", quantity: 4 },
+    { name: "banana", quantity: 2 },
+    { name: "orange", quantity: 5 }
+];
+
+const totalItems = items.reduce(function(accumulator, item) {
+    return accumulator + item.quantity;
+}, 0);  // 초기값으로 0을 설정
+
+console.log(totalItems); // 출력: 11
+}</code></pre>
+                <p>📍 01. 숫자 배열의 총합 계산하기<br>
+                    이 코드는 numbers 배열의 모든 숫자를 합하는 작업을 수행합니다. <br>
+                    accumulator는 누적 합계를 저장하며, current는 현재 숫자를 나타냅니다. <br>
+                    초기값으로 0이 설정되어 있으므로 계산은 0에서 시작합니다.<br>
+                    <br>
+                    📍 02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    이 예시는 각 항목의 quantity 값을 합산하여 총 합을 계산합니다.<br>
+                    reduce() 함수는 각 요소의 quantity를 누적 합계에 더해 나갑니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            15
+                            111
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample24 -->
+
+            <div id="sample26" class="sample">
+                <h3>07. 💛reverse()</h3>
+                <p class="notice"><b>const reversedArray = 배열.reverse();</b></p>
+
+                <ul>
+                    <li>메서드는 배열 요소의 순서를 반대로 하고, 그 결과로 변경된 배열을 반환합니다.</li>
+                    <li>이 메서드는 배열의 첫 번째 요소와 마지막 요소를 서로 바꾸고, 두 번째 요소와 끝에서 두 번째 요소를 서로 바꾸는 식으로 계속해서 배열의 순서를 뒤집습니다. </li>
+                    <li>중요한 점은 reverse()가 원본 배열을 직접 수정한다는 것입니다. </li>
+                    <li>따라서 이 메서드를 호출하면 원래의 배열이 변경되며, 변경된 배열 자체가 반환됩니다.</li>
+                    <li>reverse() 메서드는 배열의 순서를 빠르게 뒤집을 수 있어서 데이터의 순서를 변경해야 할 때 유용하게 사용됩니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 문자열 배열 뒤집기:
+const letters = ['a', 'b', 'c', 'd'];
+const reversedLetters = letters.reverse();
+
+console.log(reversedLetters); // 출력: ['d', 'c', 'b', 'a']
+console.log(letters); // 출력: ['d', 'c', 'b', 'a'] (원본 배열도 변경됨)
+
+// 02. 숫자 배열 뒤집기:
+const numbers = [1, 2, 3, 4, 5];
+numbers.reverse();
+
+console.log(numbers); // 출력: [5, 4, 3, 2, 1]
+}</code></pre>
+                <p>📍01. 문자열 배열 뒤집기<br>
+                    이 예시에서는 letters 배열의 요소 순서를 뒤집어 reversedLetters에 저장하고 있습니다.<br>
+                    reverse()는 원본 배열 letters도 변경하기 때문에, letters 배열도 뒤집힌 상태로 출력됩니다.<br>
+                    <br>
+                    📍02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    이 코드는 numbers 배열의 숫자 순서를 뒤집습니다. <br>
+                    배열을 뒤집은 후에는 원본 배열 numbers가 업데이트되어 뒤집힌 상태로 출력됩니다.<br>
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            ['d', 'c', 'b', 'a']
+                            ['d', 'c', 'b', 'a'] (원본 배열도 변경됨)
+                            [5, 4, 3, 2, 1]
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample26 -->
+
+            <div id="sample29" class="sample">
+                <h3>07. 💛💛find()</h3>
+                <p class="notice">"문자열".find(찾을_문자열, 시작_인덱스, 끝_인덱스)</p>
+
+                <ul>
+                    <li>메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</li>
+                    <li>find()메서드는 문자열에서 특정 부분 문자열을 찾고 그 위치를 알려주는 python의 문자열 메서드입니다.</li>
+                    <li>이 메서드를 사용하면 부분 문자열이 시작되는 첫 번째 위치의 인덱스를 알 수 있습니다.</li>
+                    <li>찾고자 하는 부분 문자열이 없다면 '-1'을 반환합니다.</li>
+                    <li>이 메서드는 대소문자를 구분하므로, 정확한 대소문자를 사용하여 검색어를 입력해야 합니다.</li>
+                    <li>문자열에서 처음 발견되는 부분 문자열의 인덱스만을 반환합니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 기본 예시
+s = "Hello, world!"
+print(s.find("world"))  # 출력: 7
+print(s.find("Python")) # 출력: -1  
+
+// 02. 시작 인덱스와 끝 인덱스 사용하기
+s = "Look over there, over here!"
+print(s.find("over", 5))       # 출력: 17
+print(s.find("over", 9, 13))   # 출력: -1
+}</code></pre>
+                <p>📍01. 기본예시<br>
+                    여기서 'world'는 문자열 's'의 7번 인덱스에서 시작하기 때문에 '7'을 반환합니다.<br>
+                    'Python'은 문자열 's'에 존재하지 않기 때문에 '-1'이 반환됩니다.<br>
+                    <br>
+                    📍02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    두 번째 호출은 인덱스 5부터 13까지의 범위에서 'over'문자열이 포함되어 있지 않으므로 '-1'이 출력됩니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            7<br>
+                            -1
+                            17
+                            -1
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample29 -->
+
+            <div id="sample30" class="sample">
+                <h3>07. 💛💛find()</h3>
+                <p class="notice">"문자열".find(찾을_문자열, 시작_인덱스, 끝_인덱스)</p>
+
+                <ul>
+                    <li>메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</li>
+                    <li>find()메서드는 문자열에서 특정 부분 문자열을 찾고 그 위치를 알려주는 python의 문자열 메서드입니다.</li>
+                    <li>이 메서드를 사용하면 부분 문자열이 시작되는 첫 번째 위치의 인덱스를 알 수 있습니다.</li>
+                    <li>찾고자 하는 부분 문자열이 없다면 '-1'을 반환합니다.</li>
+                    <li>이 메서드는 대소문자를 구분하므로, 정확한 대소문자를 사용하여 검색어를 입력해야 합니다.</li>
+                    <li>문자열에서 처음 발견되는 부분 문자열의 인덱스만을 반환합니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 기본 예시
+s = "Hello, world!"
+print(s.find("world"))  # 출력: 7
+print(s.find("Python")) # 출력: -1  
+
+// 02. 시작 인덱스와 끝 인덱스 사용하기
+s = "Look over there, over here!"
+print(s.find("over", 5))       # 출력: 17
+print(s.find("over", 9, 13))   # 출력: -1
+}</code></pre>
+                <p>📍01. 기본예시<br>
+                    여기서 'world'는 문자열 's'의 7번 인덱스에서 시작하기 때문에 '7'을 반환합니다.<br>
+                    'Python'은 문자열 's'에 존재하지 않기 때문에 '-1'이 반환됩니다.<br>
+                    <br>
+                    📍02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    두 번째 호출은 인덱스 5부터 13까지의 범위에서 'over'문자열이 포함되어 있지 않으므로 '-1'이 출력됩니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            7<br>
+                            -1
+                            17
+                            -1
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample30 -->
+
+            <div id="sample31" class="sample">
+                <h3>07. 💛💛find()</h3>
+                <p class="notice">"문자열".find(찾을_문자열, 시작_인덱스, 끝_인덱스)</p>
+
+                <ul>
+                    <li>메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</li>
+                    <li>find()메서드는 문자열에서 특정 부분 문자열을 찾고 그 위치를 알려주는 python의 문자열 메서드입니다.</li>
+                    <li>이 메서드를 사용하면 부분 문자열이 시작되는 첫 번째 위치의 인덱스를 알 수 있습니다.</li>
+                    <li>찾고자 하는 부분 문자열이 없다면 '-1'을 반환합니다.</li>
+                    <li>이 메서드는 대소문자를 구분하므로, 정확한 대소문자를 사용하여 검색어를 입력해야 합니다.</li>
+                    <li>문자열에서 처음 발견되는 부분 문자열의 인덱스만을 반환합니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
+// 01. 기본 예시
+s = "Hello, world!"
+print(s.find("world"))  # 출력: 7
+print(s.find("Python")) # 출력: -1  
+
+// 02. 시작 인덱스와 끝 인덱스 사용하기
+s = "Look over there, over here!"
+print(s.find("over", 5))       # 출력: 17
+print(s.find("over", 9, 13))   # 출력: -1
+}</code></pre>
+                <p>📍01. 기본예시<br>
+                    여기서 'world'는 문자열 's'의 7번 인덱스에서 시작하기 때문에 '7'을 반환합니다.<br>
+                    'Python'은 문자열 's'에 존재하지 않기 때문에 '-1'이 반환됩니다.<br>
+                    <br>
+                    📍02. 시작 인덱스와 끝 인덱스 사용하기<br>
+                    두 번째 호출은 인덱스 5부터 13까지의 범위에서 'over'문자열이 포함되어 있지 않으므로 '-1'이 출력됩니다.
+                </p>
+                <div class="result">
+                    <details>
+                        <summary>결과 확인하기</summary>
+                        <div>
+                            7<br>
+                            -1
+                            17
+                            -1
+                        </div>
+                    </details>
+                </div>
+            </div>
+            <!-- //sample31 -->
+
 
 
         </div>
         <!-- //main__sample -->
+
     </main>
     <!-- //main -->
 
