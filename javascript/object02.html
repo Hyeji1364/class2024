@@ -93,61 +93,76 @@
 
         <div class="main__sample container">
 
-            <div id="sample01" class="sample">
-                <h3>01. if문</h3>
-                <p>
-                    if문은 프로그래밍에서 조건에 따라 다른 코드 블록을 실행하도록 하는 기본적인 조건문입니다.<br>
-                    조건식이 참(true)일 때만 특정 코드 블록을 실행하게 됩니다.
-                </p>
-                <pre><code>{
-    // true, "문자열" , 숫자 1, 2, 문자열 "1" , "2" ,배열 : [], 객체 : {}
-    // false, ""(빈문자열), 0, null, undefined
+            <div id="sample07" class="sample">
+                <h3>07. 💛💛find()</h3>
+                <p class="notice">"문자열".at(위치값)</p>
 
-    if (0) {
-        console.log("실행되었습니다.(true)");
-    } else {
-        console.log("실행되었습니다.(false)");
-    }
+                <ul>
+                    <li>메서드는 주어진 판별 함수를 만족하는 첫 번째 요소의 값을 반환합니다.</li>
+                    <li>Python에서 문자열 내에서 특정 부분 문자열이 존재하지 않는다면, 이 메서드는 '-1'을 반환합니다.</li>
+                    <li>이 메서드는 문자열에서만 사용됩니다.</li>
+                </ul>
+                <pre class="javascript"><code>{
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            실행되었습니다.(false)<br>
-                            실행되었습니다.(100)
+                            javascript reference
+                            undefined
                         </div>
                     </details>
                 </div>
             </div>
-            <!-- //sample01 -->
+            <!-- //sample07 -->
 
-            <div id="sample02" class="sample">
-                <h3>01. if문</h3>
-                <p>
-                    if문은 프로그래밍에서 조건에 따라 다른 코드 블록을 실행하도록 하는 기본적인 조건문입니다.<br>
-                    조건식이 참(true)일 때만 특정 코드 블록을 실행하게 됩니다.
-                </p>
-                <pre><code>{
-    // true, "문자열" , 숫자 1, 2, 문자열 "1" , "2" ,배열 : [], 객체 : {}
-    // false, ""(빈문자열), 0, null, undefined
+            <div id="sample13" class="sample">
+                <h3>01. at()</h3>
+                <p class="notice">"문자열".at(위치값)</p>
 
-    if (0) {
-        console.log("실행되었습니다.(true)");
-    } else {
-        console.log("실행되었습니다.(false)");
-    }
+                <ul>
+                    <li>지정한 숫자(index)를 받아, 문자열에서 해당되는 인덱스의 요소를 반환합니다.</li>
+                    <li>대소문자를 구별합니다.</li>
+                    <li>문자열의 길이보다 큰 인덱스를 지정하면 undefined를 반환합니다.</li>
+                    <li>음수인 경우 문자열의 오른쪽에서부터 인덱스를 셉니다.</li>
+                    <li>여기서 주어진 문자열은 "javascript reference"이며, at() 함수에 인덱스를 전달하여 해당 인덱스에 해당하는 문자를 반환합니다. </li>
+                </ul>
+                <pre class="javascript"><code>{
+"javascript reference".at()       //j
+"javascript reference".at(0)      //j
+"javascript reference".at(1)      //a
+"javascript reference".at(2)      //v
+"javascript reference".at(3)      //a
+"javascript reference".at(4)      //s
+"javascript reference".at(5)      //c
+"javascript reference".at(6)      //r
+"javascript reference".at(7)      //i
+"javascript reference".at(8)      //p
+"javascript reference".at(9)      //t
+"javascript reference".at(10)     //' '
+"javascript reference".at(-1)     //e
+"javascript reference".at(-2)     //c
+"javascript reference".at(-3)     //n
+"javascript reference".at(-4)     //e
+"javascript reference".at(-5)     //r
+"javascript reference".at(-6)     //e
+"javascript reference".at(-7)     //f
+"javascript reference".at(-8)     //e
+"javascript reference".at(-9)     //r
+"javascript reference".at(100)    // undefined     
 }</code></pre>
                 <div class="result">
                     <details>
                         <summary>결과 확인하기</summary>
                         <div>
-                            실행되었습니다.(false)<br>
-                            실행되었습니다.(100)
+                            javascript reference
+                            undefined
                         </div>
                     </details>
                 </div>
             </div>
-            <!-- //sample02 -->
+            <!-- //sample13 -->
+
 
 
         </div>

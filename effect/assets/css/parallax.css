@@ -8,7 +8,7 @@
 
 a {
     text-decoration: none;
-    color: #000;
+    color: white;
 }
 
 li {
@@ -48,7 +48,7 @@ body.bg2 {
 }
 
 .header__inner p {
-    font-family: 'Poppins';
+    font-family: 'Lobster';
     color: #513434;
 }
 

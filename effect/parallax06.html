@@ -155,6 +155,11 @@
             margin-left: auto;
             margin-right: -4vw;
         }
+
+        .split>span {
+            display: inline-block;
+            min-width: 1.3vw;
+        }
     </style>
 </head>
 
@@ -277,6 +282,7 @@
                         <li><a href="parallax04.html">04</a></li>
                         <li><a href="parallax05.html">05</a></li>
                         <li class="active"><a href="parallax06.html">06</a></li>
+                        <li><a href="parallax07.html">07</a></li>
                     </ul>
                 </nav>
             </div>
@@ -297,11 +303,79 @@
         // text.innerHTML = splitWrap = "<span>" + splitWrap + "</span>";
 
         // 복수(forEach)
-        document.querySelectorAll(".split").forEach(text => {
-            let splitText = text.innerText;
-            let splitWrap = splitText.split("").join("</span><span>");
-            text.innerHTML = splitWrap = "<span>" + splitWrap + "</span>";
-        })
+        // document.querySelectorAll(".split").forEach(text => {
+        //     let splitText = text.innerText;
+        //     let splitWrap = splitText.split("").join("</span><span aria-hidden='true'>");
+        //     text.innerHTML = splitWrap = "<span aria-hidden='true'>" + splitWrap + "</span>";
+        //     text.setAttribute("aria-label", splitText);
+        // })
+
+        // gsap
+        // gsap.from(".split span", {
+        //     yPercent: 100,
+        //     autoAlpha: 0,
+        //     duration: 2,
+        //     ease: "circ.out",
+        //     stagger: 0.1,
+
+        //     scrollTrigger: {
+        //         trigger: ".split",
+        //         start: "top center",
+        //         end: "+=400",
+        //         markers: true,
+        //         scrub: 1
+        //     }
+        // })
+
+        // gsap.utils.toArray(".split").forEach((text) => {
+        //     gsap.from(text.querySelectorAll("span"), {
+        //         yPercent: 100,
+        //         autoAlpha: 0,
+        //         duration: 2,
+        //         ease: "circ.out",
+        //         stagger: {
+        //             amount: 1,
+        //             from: "random"
+        //         },
+
+        //         scrollTrigger: {
+        //             trigger: text,
+        //             start: "top center",
+        //             end: "+=400",
+        //             markers: true
+        //         }
+        //     })
+        // });
+
+    </script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script>
+        const targets = gsap.utils.toArray(".split");
+
+        targets.forEach((target) => {
+            let SplitClient = new SplitType(target, { type: "lines, words, chars" });
+            let lines = SplitClient.lines;
+            let words = SplitClient.words;
+            let chars = SplitClient.chars;
+
+            gsap.from(chars, {
+                yPercent: 100,
+                autoAlpha: 0,
+                duration: 1,
+                ease: "circ.out",
+                stagger: {
+                    amount: 1,
+                    from: "random"
+                },
+
+                scrollTrigger: {
+                    trigger: target,
+                    start: "top center",
+                    end: "+=400",
+                    markers: true
+                }
+            })
+        });
     </script>
 </body>
 
