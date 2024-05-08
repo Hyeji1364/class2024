@@ -23,7 +23,7 @@ browser.get("https://tickets.interpark.com/contents/ranking")
 # RadioButton_wrap__761f0 클래스를 가진 div 요소를 찾기
 search_box = browser.find_element(By.CLASS_NAME, "RadioButton_wrap__761f0")
 
-# "콘서트" 탭 버튼을 찾아서 클릭하기
+# "뮤지컬" 탭 버튼을 찾아서 클릭하기
 try:
     musical_tab_button = WebDriverWait(browser, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//button[text()='뮤지컬']"))
@@ -65,7 +65,7 @@ for ranking_item in ranking_container.find_all('div', class_='responsive-ranking
     }
     musicals.append(musical_data)
 
-# 4-10위 전시 순위 정보 추출
+# 4-10위 뮤지컬 순위 정보 추출
 rank_list_4_to_10 = soup.find_all('div', class_='responsive-ranking-list_rankingItem__PuQPJ')[3:10]  # 4위부터 10위까지의 항목 추출
 for ranking_item in rank_list_4_to_10:
     rank = ranking_item.find('div', class_='RankingBadge_badgeNumberColor__d45a0').text.strip()
