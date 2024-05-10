@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GSAP Scroll Effect</title>
-
     <link href="https://webfontworld.github.io/NexonLv1Gothic/NexonLv1Gothic.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&display=swap" rel="stylesheet">
     <style>
@@ -182,51 +181,48 @@
     <header id="parallax__title">
         <h1>GSAP Parallax Effect14</h1>
         <p>GSAP scrollTrigger - 가로/세로 나타나기 효과</p>
-        <li><a href="parallax01.html">1</a></li>
-        <li><a href="parallax02.html">2</a></li>
-        <li><a href="parallax03.html">3</a></li>
-        <li><a href="parallax04.html">4</a></li>
-        <li><a href="parallax05.html">5</a></li>
-        <li><a href="parallax06.html">6</a></li>
-        <li><a href="parallax07.html">7</a></li>
-        <li><a href="parallax08.html">8</a></li>
-        <li><a href="parallax09.html">9</a></li>
-        <li><a href="parallax10.html">10</a></li>
-        <li><a href="parallax11.html">11</a></li>
-        <li><a href="parallax12.html">12</a></li>
-        <li><a href="parallax13.html">13</a></li>
-        <li class="active"><a href="parallax14.html">14</a></li>
-        <li><a href="parallax15.html">15</a></li>
+        <ul>
+            <li><a href="parallax01.html">1</a></li>
+            <li><a href="parallax02.html">2</a></li>
+            <li><a href="parallax03.html">3</a></li>
+            <li><a href="parallax04.html">4</a></li>
+            <li><a href="parallax05.html">5</a></li>
+            <li><a href="parallax06.html">6</a></li>
+            <li><a href="parallax07.html">7</a></li>
+            <li><a href="parallax08.html">8</a></li>
+            <li><a href="parallax09.html">9</a></li>
+            <li><a href="parallax10.html">10</a></li>
+            <li><a href="parallax11.html">11</a></li>
+            <li><a href="parallax12.html">12</a></li>
+            <li><a href="parallax13.html">13</a></li>
+            <li class="active"><a href="parallax14.html">14</a></li>
+            <li><a href="parallax15.html">15</a></li>
         </ul>
     </header>
     <!-- //parallax__title  -->
-
     <main id="parallax__cont">
         <section id="section1" class="parallax__item">
             <span class="parallax__item__num">01</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img1">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
         <!-- //section1 -->
-
         <section id="section2" class="parallax__item">
             <span class="parallax__item__num">02</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img2">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
         <!-- //section2 -->
-
         <main id="horizontal">
             <section id="section3" class="parallax__item">
                 <span class="parallax__item__num">03</span>
-                <figure class="parallax__item__imgWrap">
+                <figure class="parallax__item__imgWrap img3">
                     <div class="parallax__item__img"></div>
                 </figure>
             </section>
             <!-- //section3 -->
-
             <section id="section4" class="parallax__item">
                 <span class="parallax__item__num">04</span>
                 <figure class="parallax__item__imgWrap img4">
@@ -234,7 +230,6 @@
                 </figure>
             </section>
             <!-- //section4 -->
-
             <section id="section5" class="parallax__item">
                 <span class="parallax__item__num">05</span>
                 <figure class="parallax__item__imgWrap img5">
@@ -242,7 +237,6 @@
                 </figure>
             </section>
             <!-- //section5 -->
-
             <section id="section6" class="parallax__item">
                 <span class="parallax__item__num">06</span>
                 <figure class="parallax__item__imgWrap img6">
@@ -250,7 +244,6 @@
                 </figure>
             </section>
             <!-- //section6 -->
-
             <section id="section7" class="parallax__item">
                 <span class="parallax__item__num">07</span>
                 <figure class="parallax__item__imgWrap img7">
@@ -259,32 +252,27 @@
             </section>
             <!-- //section7 -->
         </main>
-
         <section id="section8" class="parallax__item">
             <span class="parallax__item__num">08</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img8">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
         <!-- //section8 -->
-
         <section id="section9" class="parallax__item">
             <span class="parallax__item__num">09</span>
-            <figure class="parallax__item__imgWrap">
+            <figure class="parallax__item__imgWrap img9">
                 <div class="parallax__item__img"></div>
             </figure>
         </section>
         <!-- //section9 -->
     </main>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
     <script>
         const horizontal = document.querySelector("#horizontal");
         const sections = gsap.utils.toArray("#horizontal > section");
-
-        // 수평이동함수
         let scrollTween = gsap.to(sections, {
             xPercent: -100 * (sections.length - 1),
             ease: "none",
@@ -298,13 +286,33 @@
                 invalidateOnRefresh: true,
             }
         });
-
-        // 수직이동함수
-
-        gsap.to("progress", {
-            value: 100,
-            ease: "none",
-            scrollTrigger: { scrub: 0.3 }
+        gsap.to(".img1", {
+            duration: 2,
+            x: 400,
+            borderRadius: 100
+        })
+        gsap.to(".img2", {
+            duration: 3,
+            rotation: 360,
+            borderRadius: 100,
+            xPercent: 100,
+            scrollTrigger: {
+                trigger: ".img2"
+            }
+        })
+        gsap.to(".img3", {
+            x: -200,
+            rotation: 360,
+            duration: 5,
+            ease: "elastic",
+            scrollTrigger: {
+                trigger: ".img3",
+                containerAnimation: scrollTween,
+                start: "left center",
+                toggleActions: "play none reverse none",
+                markers: true,
+                id: "img3"
+            }
         })
 
         gsap.to(".img4", {
@@ -320,28 +328,10 @@
                 id: "img4"
             }
         })
-
-
-        gsap.to(".img1", {
-            duration: 2,
-            x: 500,
-            borderRadius: 100,
-            scrollTrigger: {
-                trigger: horizontal,
-                start: "top top",
-                end: () => "+=" + (horizontal.offsetWidth - innerWidth),
-                pin: true,
-                anticipatePin: 1,
-                scrub: 1,
-                invalidateOnRefresh: true,
-            }
-        });
-
         gsap.to(".img5", {
+            x: -200,
             duration: 2,
-            x: 500,
-            borderRadius: 100,
-
+            ease: "elastic",
             scrollTrigger: {
                 trigger: ".img5",
                 containerAnimation: scrollTween,
@@ -351,7 +341,163 @@
                 id: "img5"
             }
         })
+        gsap.to(".img6", {
+            x: 200,
+            y: 100,
+            duration: 3,
+            ease: "elastic",
+            scrollTrigger: {
+                trigger: ".img6",
+                containerAnimation: scrollTween,
+                start: "top top",
+                toggleActions: "play none reverse none",
+                markers: true,
+                id: "img6"
+            }
+        })
+
+        gsap.to(".img7", {
+            x: 500,
+            duration: 2,
+            rotation: 360,
+            borderRadius: 100,
+            ease: "elastic",
+
+            scrollTrigger: {
+                trigger: ".img7",
+                containerAnimation: scrollTween,
+                start: "left center",
+                toggleActions: "play none reverse none",
+                markers: true,
+                id: "img7"
+            }
+        })
+
+        gsap.to(".img8", {
+            autoAlpha: 1,  // 이미지를 서서히 나타나게 합니다.
+            scale: 5,      // 이미지를 5배 크게 확대합니다.
+            x: 300,        // 이미지를 오른쪽으로 300px 이동합니다.
+            rotation: 360, // 이미지를 360도 회전합니다.
+            duration: 2,   // 애니메이션의 지속 시간을 3초로 설정합니다.
+            backgroundColor: "#ffccff", // 배경 색상을 밝은 핑크로 변경합니다.
+            ease: "elastic",
+            yoyo: true, // 애니메이션을 되돌립니다 (뒤집힘 효과).
+            repeat: 1, // 애니메이션을 한 번 더 반복합니다.
+            scrollTrigger: {
+                trigger: ".img8",
+                start: "top bottom",
+                end: () => "+=" + document.querySelector(".img8").offsetWidth,
+                scrub: true,
+                toggleActions: "restart pause reverse pause",
+                markers: true,
+                id: "img8",
+                onEnter: () => {
+                    gsap.fromTo(".img8", { rotation: 0, scale: 1, x: 0, backgroundColor: "#ffffff" }, { rotation: 360, scale: 5, x: 300, backgroundColor: "#ffccff", ease: "power1.inOut", duration: 3 });
+                },
+                onLeave: () => {
+                    gsap.to(".img8", { rotation: 0, scale: 1, x: 0, backgroundColor: "#ffffff", ease: "power1.inOut", duration: 3 });
+                }
+            }
+        });
+
+        gsap.to(".img9", {
+            autoAlpha: 1,  // 이미지를 서서히 나타나게 합니다.
+            scale: 2,      // 이미지를 3배 크게 확대합니다.
+            x: 300,        // 이미지를 오른쪽으로 300px 이동합니다.
+            rotation: 360, // 이미지를 360도 회전합니다.
+            duration: 3,   // 애니메이션의 지속 시간을 3초로 설정합니다.
+            ease: "power1.inOut", // 애니메이션의 효과를 부드럽게 조절합니다.
+            scrollTrigger: {
+                trigger: ".img9",
+                start: "top bottom", // 트리거가 뷰포트의 상단 바닥에 닿을 때 시작됩니다.
+                end: () => "+=" + document.querySelector(".img9").offsetWidth, // 이미지의 너비만큼 스크롤 끝점을 설정합니다.
+                scrub: true,
+                toggleActions: "restart pause reverse pause",
+                markers: true,
+                id: "img9"
+            }
+        });
     </script>
+</body>
+
+</html>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js">
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.1/ScrollToPlugin.min.js"></script>
+<script>
+    const horizontal = document.querySelector("#horizontal");
+    const sections = gsap.utils.toArray("#horizontal > section");
+
+    // 수평이동함수
+    let scrollTween = gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: horizontal,
+            start: "top top",
+            end: () => "+=" + (horizontal.offsetWidth - innerWidth),
+            pin: true,
+            anticipatePin: 1,
+            scrub: 1,
+            invalidateOnRefresh: true,
+        }
+    });
+
+    // 수직이동함수
+    gsap.to("progress", {
+        value: 100,
+        ease: "none",
+        scrollTrigger: { scrub: 0.3 }
+    })
+
+    gsap.to(".img4", {
+        y: -200,
+        duration: 2,
+        ease: "elastic",
+        scrollTrigger: {
+            trigger: ".img4",
+            containerAnimation: scrollTween,
+            start: "left center",
+            toggleActions: "play none reverse none",
+            markers: true,
+            id: "img4"
+        }
+    })
+
+
+    gsap.to(".img1", {
+        duration: 2,
+        x: 500,
+        borderRadius: 100,
+        scrollTrigger: {
+            trigger: horizontal,
+            start: "top top",
+            end: () => "+=" + (horizontal.offsetWidth - innerWidth),
+            pin: true,
+            anticipatePin: 1,
+            scrub: 1,
+            invalidateOnRefresh: true,
+        }
+    });
+
+    gsap.to(".img5", {
+        duration: 2,
+        x: 500,
+        borderRadius: 100,
+
+        scrollTrigger: {
+            trigger: ".img5",
+            containerAnimation: scrollTween,
+            start: "left center",
+            toggleActions: "play none reverse none",
+            markers: true,
+            id: "img5"
+        }
+    })
+</script>
 </body>
 
 </html>
