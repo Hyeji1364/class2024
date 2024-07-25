@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UI디자인</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+      }
+      #wrap {
+        margin: 0 auto;
+        height: 100%;
+        max-width: 1200px;
+      }
+      #header {
+        width: 100%;
+        height: 100px;
+        background-color: #9c78f2;
+      }
+      #contents {
+        display: flex;
+        flex-direction: row;
+        height: calc(100% - 200px); /* 100% height minus header and footer */
+      }
+      #contents .content1 {
+        width: 20%;
+        background-color: #7857c6;
+      }
+      #contents .content2 {
+        width: 80%;
+        background-color: #623ac0;
+      }
+      #footer {
+        width: 100%;
+        height: 100px;
+        background-color: #020205;
+      }
+
+      @media (max-width: 1200px) {
+        #wrap {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 960px) {
+        #contents .content1 {
+          width: 30%;
+        }
+        #contents .content2 {
+          width: 70%;
+        }
+      }
+      @media (max-width: 768px) {
+        #contents {
+          flex-direction: column;
+        }
+        #contents .content1,
+        #contents .content2 {
+          width: 100%;
+          height: 50%;
+        }
+      }
+      @media (max-width: 600px) {
+        #contents .content1,
+        #contents .content2 {
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="wrap">
+      <header id="header"></header>
+      <main id="contents">
+        <div class="content1"></div>
+        <div class="content2"></div>
+      </main>
+      <footer id="footer"></footer>
+    </div>
+  </body>
+</html>
